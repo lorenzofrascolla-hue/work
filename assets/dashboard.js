@@ -4,6 +4,7 @@
   var root = document.documentElement;
   var steps = Array.prototype.slice.call(document.querySelectorAll(".step"));
   if (!steps.length) return;
+  clearTimeout(window.stepFallback);
   root.classList.add("js");
 
   function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }

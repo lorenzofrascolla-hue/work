@@ -9,7 +9,7 @@
 <link rel="icon" href="data:,">
 <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/style.css?v=3">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js"; window.stepFallback = setTimeout(function () { document.documentElement.className = ""; }, 4000);</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -191,6 +191,6 @@
 <footer class="site-footer">
 <p>Last updated: 12 October 2026. <a href="../">Home</a></p>
 </footer>
-<script src="../assets/dashboard.js?v=3" defer></script>
+<script src="../assets/dashboard.js?v=4" defer></script>
 </body>
 </html>

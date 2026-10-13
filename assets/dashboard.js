@@ -16,7 +16,7 @@
 
   function show(i, focus) {
     current = Math.max(0, Math.min(steps.length - 1, i));
-    steps.forEach(function (s, n) { s.hidden = n !== current; });
+    steps.forEach(function (s, n) { s.classList.toggle("current", n === current); });
     jump.forEach(function (b, n) {
       if (n === current) b.setAttribute("aria-current", "step");
       else b.removeAttribute("aria-current");
@@ -37,7 +37,6 @@
 
   showAll.addEventListener("click", function () {
     var on = root.classList.toggle("all");
-    steps.forEach(function (s, n) { s.hidden = on ? false : n !== current; });
     showAll.textContent = on ? "Show one step at a time" : "Show all five steps on one page";
     showAll.setAttribute("aria-pressed", on ? "true" : "false");
   });

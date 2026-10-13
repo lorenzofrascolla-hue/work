@@ -6,9 +6,10 @@
   if (!steps.length) return;
   root.classList.add("js");
 
-  var back = document.getElementById("step-back");
-  var next = document.getElementById("step-next");
-  var count = document.getElementById("step-count");
+  function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+  var backs = all('[data-step="back"]');
+  var nexts = all('[data-step="next"]');
+  var counts = all('[data-step="count"]');
   var showAll = document.getElementById("show-all");
   var jump = Array.prototype.slice.call(document.querySelectorAll(".step-list button"));
   var current = 0;
@@ -20,18 +21,18 @@
       if (n === current) b.setAttribute("aria-current", "step");
       else b.removeAttribute("aria-current");
     });
-    back.disabled = current === 0;
-    next.disabled = current === steps.length - 1;
-    count.textContent = "Step " + (current + 1) + " of " + steps.length;
+    backs.forEach(function (b) { b.disabled = current === 0; });
+    nexts.forEach(function (b) { b.disabled = current === steps.length - 1; });
+    counts.forEach(function (c) { c.textContent = "Step " + (current + 1) + " of " + steps.length; });
     if (focus) {
       var h = steps[current].querySelector("h2");
-      if (h) { h.setAttribute("tabindex", "-1"); h.focus(); }
+      if (h) { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); }
       steps[current].scrollIntoView({ block: "start" });
     }
   }
 
-  back.addEventListener("click", function () { show(current - 1, true); });
-  next.addEventListener("click", function () { show(current + 1, true); });
+  backs.forEach(function (b) { b.addEventListener("click", function () { show(current - 1, true); }); });
+  nexts.forEach(function (b) { b.addEventListener("click", function () { show(current + 1, true); }); });
   jump.forEach(function (b, n) { b.addEventListener("click", function () { show(n, true); }); });
 
   showAll.addEventListener("click", function () {

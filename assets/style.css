@@ -147,7 +147,10 @@ summary { cursor: pointer; font-weight: 600; padding: 0.3rem 0; }
 .show-all { display: none; }
 .js .show-all { display: inline-block; margin-top: 0.5rem; }
 
-.step { border-top: 1px solid var(--rule); padding-top: 0.5rem; }
+.step { border-top: 1px solid var(--rule); padding-top: 0.5rem; scroll-margin-top: 5rem; }
+.step h2[tabindex="-1"]:focus { outline: none; }
+.js:not(.all) .steps-nav + h2 { margin-top: 2rem; }
+.sub { display: block; font-weight: 400; font-size: 0.95rem; color: var(--muted); }
 .js .step { border-top: 0; }
 .js:not(.all) .step[hidden] { display: none; }
 .step h2 { margin-top: 1.5rem; }
@@ -195,7 +198,8 @@ dl.glossary dd { margin: 0.15rem 0 0; }
   body { font-size: 1.0625rem; }
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.3rem; }
-  table { font-size: 0.95rem; }
+  table { font-size: 0.9rem; }
+  th, td { padding-right: 0.45rem; }
   .steps-nav button { padding: 0.45rem 0.7rem; }
 }
 
@@ -204,3 +208,5 @@ dl.glossary dd { margin: 0.15rem 0 0; }
   .steps-nav, .step-list, .show-all { display: none !important; }
   .step[hidden] { display: block !important; }
 }
+
+.js.all .steps-nav { display: none; }

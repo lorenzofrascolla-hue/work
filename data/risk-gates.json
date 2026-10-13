@@ -1,0 +1,75 @@
+{
+ "gates": [
+  {
+   "number": 1,
+   "group": "Trend",
+   "rule": "Price is above its 50-day average"
+  },
+  {
+   "number": 2,
+   "group": "Trend",
+   "rule": "Price is above its 200-day average"
+  },
+  {
+   "number": 3,
+   "group": "Trend",
+   "rule": "The 20-day average is above the 50-day average"
+  },
+  {
+   "number": 4,
+   "group": "Momentum",
+   "rule": "The price is higher than it was 20 trading days ago"
+  },
+  {
+   "number": 5,
+   "group": "Momentum",
+   "rule": "The price is not stretched: less than 15% above its 50-day average"
+  },
+  {
+   "number": 6,
+   "group": "Signal",
+   "rule": "The forecasting model gives better than 62% odds of a higher price"
+  },
+  {
+   "number": 7,
+   "group": "Signal",
+   "rule": "No sudden jump in volatility"
+  },
+  {
+   "number": 8,
+   "group": "Portfolio fit",
+   "rule": "The portfolio does not already hold it"
+  },
+  {
+   "number": 9,
+   "group": "Portfolio fit",
+   "rule": "Enough cash is left over after the buy"
+  },
+  {
+   "number": 10,
+   "group": "Portfolio fit",
+   "rule": "Its sector stays under 40% of the portfolio"
+  },
+  {
+   "number": 11,
+   "group": "Financial health",
+   "rule": "Altman Z-score of 1.81 or higher (not in the distress zone)"
+  },
+  {
+   "number": 12,
+   "group": "Financial health",
+   "rule": "Beneish M-score of -1.78 or lower (no sign of manipulated earnings)"
+  },
+  {
+   "number": 13,
+   "group": "Valuation",
+   "rule": "Price is no more than 25% above the estimate of fair value"
+  }
+ ],
+ "rule": "A company is a buy candidate only if it passes all 13. A gate with missing data counts as failed.",
+ "latest_scan": {
+  "date": "2026-10-12",
+  "companies_checked": 46,
+  "passed_all_13": 0
+ }
+}

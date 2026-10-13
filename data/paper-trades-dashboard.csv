@@ -1,0 +1,228 @@
+date_utc,ticker,side,shares,price_usd,note_as_recorded,sent_to_paper_broker
+2026-06-01,NRG,buy,55,92.03,manual,no
+2026-06-01,TSM,buy,28,191.4,manual,no
+2026-06-01,IRM,buy,59,95.22,manual,no
+2026-06-02,NVDA,buy,44,223.14,manual UI,yes
+2026-06-02,NVDA,buy,44,223.14,manual UI,yes
+2026-06-02,IRM,buy,77,128.475,manual UI,yes
+2026-06-02,PWR,buy,14,706.27,manual UI,yes
+2026-06-02,FIX,buy,5,1885.06,manual UI,yes
+2026-06-02,TSM,buy,22,446.74,manual UI,yes
+2026-06-02,GEV,buy,10,969.78,manual UI,yes
+2026-06-02,NVDA,buy,44,223.14,manual UI,yes
+2026-06-02,NVDA,buy,44,223.14,manual UI,yes
+2026-06-02,NVDA,buy,44,223.14,manual UI,yes
+2026-06-02,IRM,buy,77,128.475,manual UI,yes
+2026-06-02,IRM,buy,77,128.475,manual UI,yes
+2026-06-02,TSM,buy,22,446.74,manual UI,yes
+2026-06-02,TSM,buy,22,446.74,manual UI,yes
+2026-06-02,TSM,buy,22,446.74,manual UI,yes
+2026-06-02,GEV,buy,10,969.78,manual UI,yes
+2026-06-02,GEV,buy,10,969.78,manual UI,yes
+2026-06-02,FIX,buy,5,1885.06,manual UI,yes
+2026-06-02,PWR,buy,14,706.27,manual UI,yes
+2026-06-03,ATKR,buy,118,84.18,manual UI,yes
+2026-06-03,TSM,buy,4,446.74,manual UI,yes
+2026-06-03,ATKR,buy,23,84.18,manual UI,yes
+2026-06-03,IRM,buy,17,128.475,manual UI,yes
+2026-06-03,TSM,buy,4,446.74,Manual paper buy · SPG name,yes
+2026-06-03,AAPL,buy,6,315.195,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-06-05,AAPL,buy,6.4284,311.12,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-06-05,SMCI,buy,120.2501,41.58,Manual paper buy · SPG name,yes
+2026-06-05,NVDA,buy,48.0804,207.985,Manual paper buy · SPG name,yes
+2026-06-05,DELL,buy,12.6287,395.925,Manual paper buy · SPG name,yes
+2026-06-05,SMCI,buy,166.8868,41.645,Manual paper buy · SPG name,yes
+2026-06-05,DELL,buy,15.3542,394.03,Manual paper buy · SPG name,yes
+2026-06-05,AEP,buy,92.0789,129.78,Manual paper buy · SPG name,yes
+2026-06-05,ETR,buy,107.2711,111.4,Manual paper buy · SPG name,yes
+2026-06-05,ETR,buy,107.2711,111.4,Manual paper buy · SPG name,yes
+2026-06-05,SPY,buy,6.7388,741.97,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-06-05,QQQ,buy,2.8074,712.405,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-06-05,SPY,sell,,,trim $50,yes
+2026-06-08,ETR,sell,,,trim $11322,yes
+2026-06-08,SMCI,buy,113.1094,44.205,Manual paper buy · SPG name,yes
+2026-06-08,SPY,buy,6.7468,741.09,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-06-08,IREN,buy,51.6529,58.08,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-06-08,MU,buy,4.7569,946,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-06-08,SMH,buy,3.3411,598.61,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-06-08,NU,buy,43.1593,11.585,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-06-08,SMCI,buy,11.325,44.15,Manual paper buy · SPG name,yes
+2026-06-08,TSM,buy,23.2868,427.28,Manual paper buy · SPG name,yes
+2026-06-08,DELL,buy,1.2566,397.9,Manual paper buy · SPG name,yes
+2026-06-08,NVDA,buy,2.4044,207.95,Manual paper buy · SPG name,yes
+2026-06-08,GLD,buy,5.0206,398.355,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-06-08,QQQ,sell,,,manual close (UI),yes
+2026-06-08,SMCI,buy,11.4207,43.78,Manual paper buy · SPG name,yes
+2026-06-09,POWL,buy,5.5806,277.75,Manual paper buy · SPG name,yes
+2026-06-10,SPY,sell,,,"rebalance · cut drag, add conviction",yes
+2026-06-10,GLD,sell,,,"rebalance · cut drag, add conviction",yes
+2026-06-10,SMH,sell,,,"rebalance · cut drag, add conviction",yes
+2026-06-10,AAPL,sell,,,"rebalance · cut drag, add conviction",yes
+2026-06-10,NU,sell,,,"rebalance · cut drag, add conviction",yes
+2026-06-10,POWL,buy,15.1397,270.745,"rebalance · cut drag, add conviction",yes
+2026-06-10,AEP,buy,31.5798,128.31,"rebalance · cut drag, add conviction",yes
+2026-06-10,ETR,buy,23.7484,111.46,"rebalance · cut drag, add conviction",yes
+2026-06-10,DELL,buy,10.0004,379.885,"rebalance · cut drag, add conviction",yes
+2026-06-22,AEP,sell,,,manual close (UI),yes
+2026-06-22,SMCI,sell,,,manual close (UI),yes
+2026-06-22,ETN,buy,23.2598,434.225,Manual paper buy · SPG name,yes
+2026-06-22,SMR,buy,861.0401,11.73,Manual paper buy · SPG name,yes
+2026-06-22,NVDA,buy,2.3925,208.99,Manual paper buy · SPG name,yes
+2026-06-22,FIX,buy,0.6337,2051.455,Manual paper buy · SPG name,yes
+2026-06-22,FIX,buy,0.6337,2051.455,Manual paper buy · SPG name,yes
+2026-06-22,FIX,buy,0.6093,2051.455,Manual paper buy · SPG name,yes
+2026-06-22,FIX,buy,0.6093,2051.455,Manual paper buy · SPG name,yes
+2026-06-22,FIX,buy,0.6337,2051.455,Manual paper buy · SPG name,yes
+2026-06-22,FIX,buy,0.6337,2051.455,Manual paper buy · SPG name,yes
+2026-06-22,FIX,buy,0.6337,2051.455,Manual paper buy · SPG name,yes
+2026-06-22,FIX,buy,0.5362,2051.455,Manual paper buy · SPG name,yes
+2026-07-03,SO,buy,1200.7351,97.94,Manual paper buy · SPG name,yes
+2026-07-03,HUBB,buy,241.5975,486.76,Manual paper buy · SPG name,yes
+2026-07-03,EQIX,buy,114.1162,1001.9,Manual paper buy · SPG name,yes
+2026-07-03,IRM,buy,975.6208,117.19,Manual paper buy · SPG name,yes
+2026-07-03,DLR,buy,659.4359,173.38,Manual paper buy · SPG name,yes
+2026-07-03,VRT,buy,309.6705,300.5,Manual paper buy · SPG name,yes
+2026-07-03,NVDA,buy,449.0103,194.51,Manual paper buy · SPG name,yes
+2026-07-03,ANET,buy,528.4572,160.1,Manual paper buy · SPG name,yes
+2026-07-03,ATKR,buy,1023.4547,69.325,Manual paper buy · SPG name,yes
+2026-07-03,TSM,buy,151.2263,435.44,Manual paper buy · SPG name,yes
+2026-07-03,SO,buy,1200.7351,97.94,Manual paper buy · SPG name,yes
+2026-07-03,HUBB,buy,241.5975,486.76,Manual paper buy · SPG name,yes
+2026-07-03,VRT,buy,342.193,300.5,Manual paper buy · SPG name,yes
+2026-07-03,ANET,buy,624.0037,160.1,Manual paper buy · SPG name,yes
+2026-07-03,NVDA,buy,491.7793,194.51,Manual paper buy · SPG name,yes
+2026-07-03,DLR,buy,535.1194,173.38,Manual paper buy · SPG name,yes
+2026-07-03,EQIX,buy,90.6607,1001.9,Manual paper buy · SPG name,yes
+2026-07-03,ATKR,buy,1152.1962,69.325,Manual paper buy · SPG name,yes
+2026-07-03,TSM,buy,169.9959,435.44,Manual paper buy · SPG name,yes
+2026-07-03,IRM,buy,523.8331,117.19,Manual paper buy · SPG name,yes
+2026-07-03,TLN,buy,130.1013,365.2,Manual paper buy · SPG name,yes
+2026-07-03,SO,buy,1200.7351,97.94,Manual paper buy · SPG name,yes
+2026-07-03,ANET,buy,624.0037,160.1,Manual paper buy · SPG name,yes
+2026-07-03,NVDA,buy,491.7793,194.51,Manual paper buy · SPG name,yes
+2026-07-03,EQIX,buy,90.6607,1001.9,Manual paper buy · SPG name,yes
+2026-07-03,IRM,buy,523.8331,117.19,Manual paper buy · SPG name,yes
+2026-07-03,DLR,buy,535.1194,173.38,Manual paper buy · SPG name,yes
+2026-07-03,ATKR,buy,1152.1962,69.325,Manual paper buy · SPG name,yes
+2026-07-03,TSM,buy,169.9959,435.44,Manual paper buy · SPG name,yes
+2026-07-03,HUBB,buy,241.5975,486.76,Manual paper buy · SPG name,yes
+2026-07-03,TLN,buy,130.1013,365.2,Manual paper buy · SPG name,yes
+2026-07-03,VRT,buy,342.193,300.5,Manual paper buy · SPG name,yes
+2026-07-03,SO,buy,1200.7351,97.94,Manual paper buy · SPG name,yes
+2026-07-03,ANET,buy,624.0037,160.1,Manual paper buy · SPG name,yes
+2026-07-03,NVDA,buy,491.7793,194.51,Manual paper buy · SPG name,yes
+2026-07-03,EQIX,buy,90.6607,1001.9,Manual paper buy · SPG name,yes
+2026-07-03,IRM,buy,523.8331,117.19,Manual paper buy · SPG name,yes
+2026-07-03,DLR,buy,535.1194,173.38,Manual paper buy · SPG name,yes
+2026-07-03,ATKR,buy,1152.1962,69.325,Manual paper buy · SPG name,yes
+2026-07-03,TSM,buy,169.9959,435.44,Manual paper buy · SPG name,yes
+2026-07-03,HUBB,buy,241.5975,486.76,Manual paper buy · SPG name,yes
+2026-07-03,TLN,buy,130.1013,365.2,Manual paper buy · SPG name,yes
+2026-07-06,SMCI,buy,2940.2278,27.22,Manual paper buy · SPG name,yes
+2026-07-06,POWL,buy,324.7302,246.46,Manual paper buy · SPG name,yes
+2026-07-06,NVDA,buy,411.4596,194.51,Manual paper buy · SPG name,yes
+2026-07-06,ANET,buy,499.8938,160.1,Manual paper buy · SPG name,yes
+2026-07-06,FIX,buy,46.0071,1739.58,Manual paper buy · SPG name,yes
+2026-07-06,VRT,buy,266.3328,300.5,Manual paper buy · SPG name,yes
+2026-07-06,SO,buy,840.5146,97.94,Manual paper buy · SPG name,yes
+2026-07-06,ETR,buy,715.142,115.11,Manual paper buy · SPG name,yes
+2026-07-06,SMCI,buy,2940.2278,27.22,Manual paper buy · SPG name,yes
+2026-07-06,POWL,buy,324.7302,246.46,Manual paper buy · SPG name,yes
+2026-07-06,NVDA,buy,411.4596,194.51,Manual paper buy · SPG name,yes
+2026-07-06,ANET,buy,491.1507,162.95,Manual paper buy · SPG name,yes
+2026-07-06,FIX,buy,46.0071,1739.58,Manual paper buy · SPG name,yes
+2026-07-06,VRT,buy,266.3328,300.5,Manual paper buy · SPG name,yes
+2026-07-06,SO,buy,840.5146,97.94,Manual paper buy · SPG name,yes
+2026-07-06,ETR,buy,715.142,115.11,Manual paper buy · SPG name,yes
+2026-07-14,VRT,sell,,,manual close (UI),yes
+2026-07-14,V,buy,223.8019,357.66,Manual paper buy · non-SPG (excluded from thesis conviction),yes
+2026-07-14,POWL,buy,151.755,232.335,Manual paper buy · SPG name,yes
+2026-07-14,FIX,buy,17.4288,1765.01,Manual paper buy · SPG name,yes
+2026-07-14,SO,buy,275.7273,96.24,Manual paper buy · SPG name,yes
+2026-07-14,ETR,buy,219.3587,115.555,Manual paper buy · SPG name,yes
+2026-07-14,SMCI,buy,866.4385,27.755,Manual paper buy · SPG name,yes
+2026-07-14,NVDA,buy,90.9603,209.41,Manual paper buy · SPG name,yes
+2026-07-14,ANET,buy,91.1779,183.29,Manual paper buy · SPG name,yes
+2026-07-15,V,sell,,,manual close (UI),yes
+2026-07-15,ANET,buy,95.6579,168.005,Manual paper buy · SPG name,yes
+2026-07-15,VRT,buy,384.9223,291.49,Manual paper buy · SPG name,yes
+2026-08-27,SPY,sell,,,trim $746636,yes
+2026-08-27,POWL,buy,614.7836,194.54,Manual paper buy · SPG name,yes
+2026-08-27,SMCI,buy,3087.2483,38.74,Manual paper buy · SPG name,yes
+2026-08-27,HUBB,buy,253.0293,472.475,Manual paper buy · SPG name,yes
+2026-08-27,FIX,buy,67.9798,1612.98,Manual paper buy · SPG name,yes
+2026-08-27,DELL,buy,175.3091,467.46,Manual paper buy · SPG name,yes
+2026-08-27,SO,buy,919.4168,88.48,Manual paper buy · SPG name,yes
+2026-08-27,NVDA,buy,521.7999,229.015,Manual paper buy · SPG name,yes
+2026-08-27,NVDA,buy,521.9252,228.96,Manual paper buy · SPG name,yes
+2026-08-29,SPY,sell,,,trim $661613,yes
+2026-08-31,SPY,sell,,,trim $679439,yes
+2026-08-31,POWL,buy,589.5245,180.23,Manual paper buy · SPG name,yes
+2026-08-31,SMCI,buy,2770.4698,37.25,Manual paper buy · SPG name,yes
+2026-08-31,NVDA,buy,525.1881,219.35,Manual paper buy · SPG name,yes
+2026-08-31,FIX,buy,62.283,1529.31,Manual paper buy · SPG name,yes
+2026-08-31,SO,buy,908.884,87.855,Manual paper buy · SPG name,yes
+2026-08-31,HUBB,buy,252.7147,455.85,Manual paper buy · SPG name,yes
+2026-08-31,HUBB,buy,252.7147,455.85,Manual paper buy · SPG name,yes
+2026-08-31,DELL,buy,149.3648,463.63,Manual paper buy · SPG name,yes
+2026-08-31,HUBB,sell,,,trim $115040,yes
+2026-08-31,DELL,buy,19.1021,463.3,Manual paper buy · SPG name,yes
+2026-09-10,SPY,sell,,,trim $650072,yes
+2026-09-10,POWL,buy,519.3323,175.225,Manual paper buy · SPG name,yes
+2026-09-10,SMCI,buy,2359.9321,38.285,Manual paper buy · SPG name,yes
+2026-09-10,HUBB,buy,257.9969,453.3,Manual paper buy · SPG name,yes
+2026-09-10,FIX,buy,52.3527,1588.265,Manual paper buy · SPG name,yes
+2026-09-10,ETR,buy,849.2609,106.21,Manual paper buy · SPG name,yes
+2026-09-10,NVDA,buy,424.3269,218.935,Manual paper buy · SPG name,yes
+2026-09-10,SO,buy,1046.1941,87.89,Manual paper buy · SPG name,yes
+2026-09-10,SO,buy,1046.1941,87.89,Manual paper buy · SPG name,yes
+2026-09-10,SO,sell,,,trim $91862,yes
+2026-09-10,SO,sell,,,trim $91910,yes
+2026-09-10,TSM,buy,225.5935,431.75,Manual paper buy · SPG name,yes
+2026-09-10,DELL,buy,135.504,516.59,Manual paper buy · SPG name,yes
+2026-09-10,SO,buy,306.0644,87.89,Manual paper buy · SPG name,yes
+2026-09-11,SPY,sell,,,trim $656924,yes
+2026-09-11,POWL,buy,533.7676,181.165,Manual paper buy · SPG name,yes
+2026-09-11,SMCI,buy,2547.8438,39.19,Manual paper buy · SPG name,yes
+2026-09-11,NVDA,buy,453.5814,219.255,Manual paper buy · SPG name,yes
+2026-09-11,SO,buy,1132.6438,87.98,Manual paper buy · SPG name,yes
+2026-09-11,ETR,buy,939.3939,105.6,Manual paper buy · SPG name,yes
+2026-09-11,ETR,buy,747.1591,105.6,Manual paper buy · SPG name,yes
+2026-09-11,HUBB,buy,207.3122,466.205,Manual paper buy · SPG name,yes
+2026-09-11,ETR,sell,,,trim $78827,yes
+2026-09-11,ETR,sell,,,trim $78829,yes
+2026-09-11,FIX,buy,39.6747,1677.39,Manual paper buy · SPG name,yes
+2026-09-11,FIX,buy,51.8067,1677.39,Manual paper buy · SPG name,yes
+2026-09-11,ETR,buy,553.9773,105.6,Manual paper buy · SPG name,yes
+2026-09-11,ETR,buy,412.8788,105.6,Manual paper buy · SPG name,yes
+2026-09-21,HUBB,buy,17.2821,457.12,Manual paper buy · SPG name,yes
+2026-09-22,HUBB,buy,16.4592,458.71,Manual paper buy · SPG name,yes
+2026-09-22,HUBB,buy,16.4592,458.71,Manual paper buy · SPG name,yes
+2026-09-22,HUBB,buy,16.4592,458.71,Manual paper buy · SPG name,yes
+2026-09-23,AVGO,sell,,,manual close (UI),yes
+2026-09-23,POWL,buy,617.3289,192.28,Manual paper buy · SPG name,yes
+2026-09-23,HUBB,buy,256.6154,462.56,Manual paper buy · SPG name,yes
+2026-09-23,DELL,buy,63.1699,550.895,Manual paper buy · SPG name,yes
+2026-09-23,TLN,buy,152.1797,300.96,Manual paper buy · SPG name,yes
+2026-09-23,TLN,buy,151.8474,300.96,Manual paper buy · SPG name,yes
+2026-09-23,PWR,sell,,,manual close (UI),yes
+2026-09-23,SO,sell,,,manual close (UI),yes
+2026-09-27,SMCI,sell,,,trim $12571,yes
+2026-09-27,SO,sell,,,manual close (UI),yes
+2026-09-27,SMCI,sell,,,trim $12571,yes
+2026-09-27,SMCI,sell,,,trim $12571,yes
+2026-09-27,SMCI,sell,,,trim $12571,yes
+2026-09-27,SMCI,sell,,,trim $12571,yes
+2026-09-27,SMCI,sell,,,trim $12571,yes
+2026-09-27,HUBB,buy,172.3916,466.09,Manual paper buy · SPG name,yes
+2026-09-27,DELL,buy,37.903,563.28,Manual paper buy · SPG name,yes
+2026-09-27,DELL,buy,37.903,563.28,Manual paper buy · SPG name,yes
+2026-09-27,NVDA,buy,2.2217,225.05,Manual paper buy · SPG name,yes
+2026-09-27,FIX,buy,0.3017,1657.03,Manual paper buy · SPG name,yes
+2026-09-27,POWL,buy,2.6371,189.6,Manual paper buy · SPG name,yes
+2026-09-28,SO,sell,,,manual close (UI),yes
+2026-09-28,POWL,buy,13.587,187.68,Manual paper buy · SPG name,yes
+2026-09-28,POWL,buy,13.587,187.68,Manual paper buy · SPG name,yes
+2026-09-28,HUBB,buy,86.6915,464.29,Manual paper buy · SPG name,yes
+2026-09-28,HUBB,buy,82.7069,464.29,Manual paper buy · SPG name,yes
+2026-09-28,HUBB,buy,36.0766,464.29,Manual paper buy · SPG name,yes

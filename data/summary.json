@@ -1,0 +1,44 @@
+{
+ "snapshot_date": "2026-10-12",
+ "current_account": {
+  "start_date": "2026-07-03",
+  "start_equity": 1000000.0,
+  "end_date": "2026-10-12",
+  "end_equity": 1011630.01,
+  "return_pct": 1.16,
+  "sp500_start_close_date": "2026-07-02",
+  "sp500_start": 7483.24,
+  "sp500_end": 7807.24,
+  "sp500_return_pct": 4.33,
+  "difference_points": -3.17
+ },
+ "first_account": {
+  "start_date": "2026-06-02",
+  "start_equity": 100000,
+  "end_date": "2026-07-02",
+  "end_equity": 91552.62,
+  "return_pct": -8.45,
+  "sp500_start": 7609.78,
+  "sp500_end": 7483.24,
+  "sp500_return_pct": -1.66
+ },
+ "positions": {
+  "count": 14,
+  "gross_usd": 1060728.04,
+  "cash_usd": -49098.03,
+  "equity_usd": 1011630.01
+ },
+ "excluded_rows": 22,
+ "days_missing": [
+  "2026-07-10",
+  "2026-07-20",
+  "2026-08-04",
+  "2026-09-18"
+ ],
+ "counts": {
+  "dashboard_paper_trades": 227,
+  "automated_orders": 92,
+  "blocked_orders": 96,
+  "stopped_run_days": 39
+ }
+}

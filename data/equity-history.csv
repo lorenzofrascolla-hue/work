@@ -1,0 +1,89 @@
+date,paper_account,equity_usd_as_recorded,record_type,sp500_close
+2026-06-02,first,100000,snapshot,7609.78
+2026-06-03,first,100000,snapshot,7553.68
+2026-06-04,first,100000,snapshot,7584.31
+2026-06-05,first,99311.91,snapshot,7383.74
+2026-06-08,first,99768.5,snapshot,7405.73
+2026-06-09,first,97775.14,snapshot,7386.65
+2026-06-11,first,94584.37,snapshot,7394.3
+2026-06-12,first,94841.64,snapshot,7431.46
+2026-06-15,first,97030.88,snapshot,7554.29
+2026-06-16,first,95116.26,snapshot,7511.35
+2026-06-17,first,94923.26,snapshot,7420.1
+2026-06-18,first,97206.75,snapshot,7500.58
+2026-06-22,first,100573.16,snapshot,7472.79
+2026-06-23,first,97110.87,snapshot,7365.46
+2026-06-24,first,97873.39,snapshot,7358.22
+2026-06-25,first,97252.51,snapshot,7357.49
+2026-06-26,first,94438.91,snapshot,7354.02
+2026-06-29,first,96478.28,snapshot,7440.43
+2026-06-30,first,98286.91,snapshot,7499.36
+2026-07-01,first,94879.91,snapshot,7483.23
+2026-07-02,first,91552.62,snapshot,7483.24
+2026-07-03,current,1000000.0,snapshot (account reset; market closed),7483.24
+2026-07-06,current,997620.1,snapshot,7537.43
+2026-07-07,current,980242.91,snapshot,7503.85
+2026-07-08,current,998138.35,snapshot,7482.71
+2026-07-09,current,1005589.89,snapshot,7543.64
+2026-07-13,current,993871.27,snapshot,7515.34
+2026-07-14,current,1002288.52,snapshot,7543.59
+2026-07-15,current,999922.8,closing record,7572.4
+2026-07-16,current,974329.1,closing record,7533.77
+2026-07-17,current,963962.05,snapshot,7457.69
+2026-07-21,current,974744.74,closing record,7509.2
+2026-07-22,current,977274.34,closing record,7498.96
+2026-07-23,current,968180.73,closing record,7408.3
+2026-07-24,current,964860.36,closing record,7411.98
+2026-07-27,current,963777.75,closing record,7413.18
+2026-07-28,current,959808.06,closing record,7428.78
+2026-07-29,current,939133.74,closing record,7316.15
+2026-07-30,current,960668.5,closing record,7437.63
+2026-07-31,current,967953.33,closing record,7489.72
+2026-08-03,current,981885.74,snapshot,7600.5
+2026-08-05,current,997670.84,closing record,7723.55
+2026-08-06,current,994510.27,closing record,7709.96
+2026-08-07,current,1000899.84,closing record,7757.64
+2026-08-10,current,1000064.3,closing record,7753.11
+2026-08-11,current,997239.5,closing record,7728.2
+2026-08-12,current,1002645.77,closing record,7748.5
+2026-08-13,current,1009478.32,closing record,7798.99
+2026-08-14,current,1007851.55,closing record,7785.76
+2026-08-17,current,1003046.6,closing record,7745.06
+2026-08-18,current,995093.15,closing record,7691.76
+2026-08-19,current,994005.02,closing record,7707.98
+2026-08-20,current,986569.81,closing record,7641.16
+2026-08-21,current,988063.53,closing record,7674.37
+2026-08-24,current,985067.23,snapshot,7652.86
+2026-08-25,current,989615.53,closing record,7677.28
+2026-08-26,current,990920.68,closing record,7675.7
+2026-08-27,current,994825.37,closing record,7730.99
+2026-08-28,current,964152.42,closing record,7711.76
+2026-08-31,current,960096.64,closing record,7686.14
+2026-09-01,current,942198.29,closing record,7631.47
+2026-09-02,current,960362.07,closing record,7666.6
+2026-09-03,current,978621.04,closing record,7747.71
+2026-09-04,current,990169.52,closing record,7718.6
+2026-09-08,current,987801.36,closing record,7673.52
+2026-09-09,current,981813.99,closing record,7636.36
+2026-09-10,current,968165.8,closing record,7591.7
+2026-09-11,current,994224.52,closing record,7656.98
+2026-09-14,current,950248.17,closing record,7619.98
+2026-09-15,current,945666.86,closing record,7585.73
+2026-09-16,current,959124.37,closing record,7551.81
+2026-09-17,current,976386.23,snapshot,7637.76
+2026-09-21,current,996430.81,closing record,7764.7
+2026-09-22,current,998161.73,closing record,7764.64
+2026-09-23,current,987569.99,closing record,7706.03
+2026-09-24,current,981464.77,closing record,7704.13
+2026-09-25,current,990909.96,closing record,7743.41
+2026-09-28,current,980358.79,snapshot,7683.69
+2026-09-29,current,983493.08,closing record,7670.84
+2026-09-30,current,976651.44,closing record,7651.54
+2026-10-01,current,996737.49,closing record,7666.45
+2026-10-02,current,1015647.91,next-day snapshot (market closed),7722.72
+2026-10-05,current,1020881.69,closing record,7773.95
+2026-10-06,current,1053802.43,closing record,7818.93
+2026-10-07,current,1045843.94,closing record,7801.77
+2026-10-08,current,1018940.21,closing record,7765.36
+2026-10-09,current,1027090.2,closing record,7811.54
+2026-10-12,current,1011630.01,snapshot,7807.24

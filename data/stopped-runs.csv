@@ -1,0 +1,40 @@
+date,reason_as_recorded,times_that_day
+2026-07-03,rankings stale (>12h),1
+2026-07-08,target list too short,1
+2026-07-09,target list too short,1
+2026-07-10,broker preflight failed (demo/errored account or zero equity),1
+2026-07-20,broker preflight failed (demo/errored account or zero equity),8
+2026-07-21,broker preflight failed (demo/errored account or zero equity),9
+2026-07-22,broker preflight failed (demo/errored account or zero equity),7
+2026-07-23,broker preflight failed (demo/errored account or zero equity),1
+2026-07-28,broker preflight failed (demo/errored account or zero equity),1
+2026-07-29,broker preflight failed (demo/errored account or zero equity),2
+2026-07-30,broker preflight failed (demo/errored account or zero equity),2
+2026-08-04,broker preflight failed (demo/errored account or zero equity),7
+2026-08-05,broker preflight failed (demo/errored account or zero equity),7
+2026-08-15,broker preflight failed (demo/errored account or zero equity),1
+2026-08-19,broker preflight failed (demo/errored account or zero equity),1
+2026-08-20,broker preflight failed (demo/errored account or zero equity),3
+2026-08-21,broker preflight failed (demo/errored account or zero equity),2
+2026-08-24,broker preflight failed (demo/errored account or zero equity),3
+2026-08-25,broker preflight failed (demo/errored account or zero equity),2
+2026-08-26,broker preflight failed (demo/errored account or zero equity),2
+2026-08-27,broker preflight failed (demo/errored account or zero equity),2
+2026-08-28,broker preflight failed (demo/errored account or zero equity),3
+2026-08-31,broker preflight failed (demo/errored account or zero equity),5
+2026-09-01,broker preflight failed (demo/errored account or zero equity),1
+2026-09-07,broker preflight failed (demo/errored account or zero equity),2
+2026-09-09,broker preflight failed (demo/errored account or zero equity),2
+2026-09-10,broker preflight failed (demo/errored account or zero equity),1
+2026-09-11,broker preflight failed (demo/errored account or zero equity),1
+2026-09-18,broker preflight failed (demo/errored account or zero equity),2
+2026-09-23,broker preflight failed (demo/errored account or zero equity),1
+2026-09-25,broker preflight failed (demo/errored account or zero equity),1
+2026-09-29,broker preflight failed (demo/errored account or zero equity),3
+2026-09-30,broker preflight failed (demo/errored account or zero equity),2
+2026-10-01,broker preflight failed (demo/errored account or zero equity),1
+2026-10-02,broker preflight failed (demo/errored account or zero equity),1
+2026-10-05,broker preflight failed (demo/errored account or zero equity),2
+2026-10-07,broker preflight failed (demo/errored account or zero equity),2
+2026-10-09,broker preflight failed (demo/errored account or zero equity),1
+2026-10-12,broker preflight failed (demo/errored account or zero equity),1

@@ -1,0 +1,15 @@
+ticker,company,what_it_does,market_value_usd,pct_of_account_value
+ETR,Entergy,Electric utility in the Gulf South,140206.08,13.9
+NVDA,NVIDIA,AI chips,122875.06,12.1
+SMCI,Super Micro Computer,AI server racks,121176.78,12.0
+POWL,Powell Industries,Switchgear and electrical distribution equipment,119287.73,11.8
+TLN,Talen Energy,Power producer with nuclear plants,115445.01,11.4
+HUBB,Hubbell,Electrical and utility components,97118.83,9.6
+DELL,Dell Technologies,AI servers and storage,79558.0,7.9
+GEV,GE Vernova,"Grid equipment, transformers and turbines",44494.93,4.4
+VRT,Vertiv,Cooling and power systems for data centers,41038.51,4.1
+ANET,Arista Networks,Networking gear that connects AI servers,40786.81,4.0
+EQIX,Equinix,Owns data centers,40169.82,4.0
+FIX,Comfort Systems USA,Builds the mechanical and electrical systems inside data centers,39312,3.9
+ETN,Eaton,"Electrical equipment, including transformers and switchgear",38642.29,3.8
+TSM,TSMC,Manufactures leading-edge chips,20616.18,2.0

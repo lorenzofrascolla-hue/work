@@ -1,0 +1,97 @@
+date,ticker,company,simulated_buy_usd,room_left_usd,reason
+2026-07-29,SO,Southern Company,41233,9955,exposure limit: buying this would push the portfolio past the allowed total
+2026-07-29,VRT,Vertiv,22164,9955,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-03,AEP,American Electric Power,23923,4738,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-03,ANET,Arista Networks,20053,4738,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-03,EQIX,Equinix,38812,30125,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-03,TSM,TSMC,26980,4738,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-06,DELL,Dell Technologies,23908,4836,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-06,ETR,Entergy,26302,4836,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-06,SO,Southern Company,26720,4836,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-06,VRT,Vertiv,34812,4836,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-07,ANET,Arista Networks,26609,4836,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-07,EQIX,Equinix,39979,4836,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-07,ETR,Entergy,16370,4836,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-07,SO,Southern Company,17076,4836,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-11,ANET,Arista Networks,26829,4824,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-11,ETR,Entergy,16686,4824,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-11,IRM,Iron Mountain,40034,4824,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-11,SO,Southern Company,17429,4824,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-12,DELL,Dell Technologies,24109,4976,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-12,ETR,Entergy,26597,4976,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-12,SO,Southern Company,27399,4976,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-12,VRT,Vertiv,33735,4976,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-13,DELL,Dell Technologies,21693,4970,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-13,ETR,Entergy,26493,4970,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-13,SO,Southern Company,27304,4970,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-13,VRT,Vertiv,34345,4970,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-14,DELL,Dell Technologies,22537,4982,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-14,ETR,Entergy,26891,4982,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-14,SO,Southern Company,27471,4982,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-14,VRT,Vertiv,34520,4982,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-17,DELL,Dell Technologies,22143,4970,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-17,ETR,Entergy,26564,4970,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-17,SO,Southern Company,27619,4970,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-17,VRT,Vertiv,34105,4970,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-18,DELL,Dell Technologies,23277,4971,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-18,ETR,Entergy,25902,4971,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-18,SO,Southern Company,26837,4971,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-18,VRT,Vertiv,34328,4971,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-20,DELL,Dell Technologies,8262,4935,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-20,VRT,Vertiv,18804,4935,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-24,ETN,Eaton,31331,4946,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-24,SMCI,Super Micro Computer,19698,4946,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-26,ATKR,Atkore,22584,4891,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-26,DLR,Digital Realty,18183,4891,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-27,ATKR,Atkore,22717,4923,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-27,EQIX,Equinix,18218,4923,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-27,SMCI,Super Micro Computer,19866,4923,exposure limit: buying this would push the portfolio past the allowed total
+2026-08-28,SPY,S&P 500 index fund (SPY),668808,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-02,SPY,S&P 500 index fund (SPY),642557,102180,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-03,SPY,S&P 500 index fund (SPY),547975,4669,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-14,ETN,Eaton,41608,36423,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-15,DLR,Digital Realty,41374,20108,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-15,ETN,Eaton,41374,20108,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-15,GEV,GE Vernova,41374,20108,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-17,DLR,Digital Realty,42520,8310,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-17,ETN,Eaton,42520,8310,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-17,GEV,GE Vernova,42520,8310,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-22,DLR,Digital Realty,42934,9194,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-22,ETN,Eaton,42934,9194,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-22,GEV,GE Vernova,42934,9194,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-28,ANET,Arista Networks,735,630,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-28,AVGO,Broadcom,42584,630,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-28,DLR,Digital Realty,42584,630,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-28,EQIX,Equinix,830,630,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-28,ETN,Eaton,1086,630,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-28,FIX,Comfort Systems USA,1834,630,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-30,CEG,Constellation Energy,39523,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-30,NRG,NRG Energy,39523,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-30,SO,Southern Company,39523,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-09-30,TSM,TSMC,18414,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-01,ANET,Arista Networks,1097,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-01,AVGO,Broadcom,40748,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-01,DLR,Digital Realty,40748,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-01,EQIX,Equinix,1396,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-01,ETN,Eaton,1535,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-01,FIX,Comfort Systems USA,807,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-01,SO,Southern Company,40748,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-01,TSM,TSMC,19604,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-02,AVGO,Broadcom,42096,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-02,DLR,Digital Realty,42096,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-02,EQIX,Equinix,2715,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-02,ETN,Eaton,1797,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-02,FIX,Comfort Systems USA,936,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-02,SO,Southern Company,42096,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-02,TSM,TSMC,20560,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-08,AVGO,Broadcom,42792,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-08,DLR,Digital Realty,42792,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-08,ETN,Eaton,4250,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-08,SO,Southern Company,42792,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-08,TSM,TSMC,21275,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-12,ANET,Arista Networks,827,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-12,AVGO,Broadcom,42411,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-12,DLR,Digital Realty,42411,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-12,ETN,Eaton,3661,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-12,SO,Southern Company,42411,0,exposure limit: buying this would push the portfolio past the allowed total
+2026-10-12,TSM,TSMC,21418,0,exposure limit: buying this would push the portfolio past the allowed total

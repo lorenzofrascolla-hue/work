@@ -1,0 +1,93 @@
+date,side,ticker,amount_usd,reason_as_recorded,run_reported_executed
+2026-07-03,buy,VRT,102829,new position,false
+2026-07-03,buy,SO,117600,new position,false
+2026-07-03,buy,ANET,99903,new position,false
+2026-07-03,buy,NVDA,95656,new position,false
+2026-07-03,buy,EQIX,90833,new position,false
+2026-07-03,buy,IRM,61388,new position,false
+2026-07-03,buy,DLR,92779,new position,false
+2026-07-03,buy,ATKR,79876,new position,false
+2026-07-03,buy,TSM,74023,new position,false
+2026-07-03,buy,HUBB,117600,new position,false
+2026-07-03,buy,TLN,47513,new position,false
+2026-07-06,buy,SMCI,80033,new position,true
+2026-07-06,buy,POWL,80033,new position,true
+2026-07-06,buy,NVDA,80033,new position,true
+2026-07-06,buy,ANET,80033,new position,true
+2026-07-06,buy,FIX,80033,new position,true
+2026-07-06,buy,VRT,80033,new position,true
+2026-07-06,buy,SO,82320,new position,true
+2026-07-06,buy,ETR,82320,new position,true
+2026-07-13,buy,POWL,33893,add to target,false
+2026-07-13,buy,SMCI,23988,add to target,false
+2026-07-13,buy,NVDA,20823,add to target,false
+2026-07-13,buy,ANET,17333,add to target,false
+2026-07-13,buy,FIX,28180,add to target,false
+2026-07-13,buy,VRT,27798,add to target,false
+2026-07-13,buy,SO,25433,add to target,false
+2026-07-13,buy,ETR,24932,add to target,false
+2026-07-13,buy,V,79367,new position,false
+2026-08-02,buy,ETR,14935,add to target,false
+2026-08-02,buy,IRM,12578,add to target,false
+2026-08-02,sell,POWL,13296,trim to target,false
+2026-08-02,buy,SO,15262,add to target,false
+2026-08-02,sell,VRT,11721,trim to target,false
+2026-08-31,sell,HUBB,114433,veto flip,false
+2026-09-02,sell,HUBB,111654,veto flip,true
+2026-09-02,buy,SPY,97541,cash sweep → SPY,true
+2026-09-04,sell,DELL,83637,trim to target,true
+2026-09-04,sell,EQIX,14104,trim to target,true
+2026-09-04,sell,ETR,11743,trim to target,true
+2026-09-04,sell,FIX,86232,trim to target,true
+2026-09-04,sell,NVDA,96985,trim to target,true
+2026-09-04,sell,POWL,88026,trim to target,true
+2026-09-04,sell,SMCI,93488,trim to target,true
+2026-09-04,sell,SO,91189,trim to target,true
+2026-09-04,buy,SPY,565203,completion sleeve → 99.5% deployed,true
+2026-09-11,sell,ETR,142512,veto flip,false
+2026-09-11,sell,HUBB,118721,veto flip,false
+2026-09-11,sell,SPY,119102,SPY ban: exit — funds the basket,false
+2026-09-11,buy,ANET,44898,new position (basket),false
+2026-09-11,buy,VRT,44898,new position (basket),false
+2026-09-11,buy,GEV,44898,new position (basket),false
+2026-09-14,sell,HUBB,114864,veto flip,true
+2026-09-14,sell,SPY,118020,SPY ban: exit — funds the basket,true
+2026-09-14,buy,VRT,41608,new position (basket),true
+2026-09-14,buy,ANET,41608,new position (basket),true
+2026-09-14,buy,EQIX,17260,add to target,true
+2026-09-15,buy,DELL,16828,add to target,true
+2026-09-15,buy,EQIX,883,add to target,true
+2026-09-15,sell,ANET,934,trim to target,true
+2026-09-17,buy,EQIX,420,add to target,true
+2026-09-17,sell,DELL,963,trim to target,true
+2026-09-17,sell,ANET,2133,trim to target,true
+2026-09-17,sell,VRT,2815,trim to target,true
+2026-09-22,buy,ANET,646,add to target,true
+2026-09-22,buy,DELL,520,add to target,true
+2026-09-22,buy,VRT,507,add to target,true
+2026-09-22,sell,EQIX,1300,trim to target,true
+2026-09-23,sell,ANET,42851,veto flip,true
+2026-09-23,sell,FIX,168935,veto flip,true
+2026-09-23,sell,HUBB,22648,veto flip,true
+2026-09-23,sell,POWL,124933,veto flip,true
+2026-09-23,sell,VRT,43075,veto flip,true
+2026-09-23,buy,PWR,70630,new position (basket),true
+2026-09-23,buy,AVGO,70630,new position (basket),true
+2026-09-24,sell,HUBB,117083,veto flip,true
+2026-09-24,buy,ANET,42227,new position (basket),true
+2026-09-24,buy,FIX,42227,new position (basket),true
+2026-09-24,buy,VRT,42227,new position (basket),true
+2026-09-24,buy,EQIX,406,add to target,true
+2026-09-25,buy,FIX,42760,new position (basket),true
+2026-09-25,buy,SO,42760,new position (basket),true
+2026-09-25,buy,ETN,42760,new position (basket),true
+2026-09-25,buy,EQIX,341,add to target,true
+2026-09-25,sell,ANET,577,trim to target,true
+2026-09-25,sell,VRT,815,trim to target,true
+2026-09-28,buy,GEV,42584,new position (basket),true
+2026-09-28,sell,VRT,28,trim to target,true
+2026-09-28,sell,SO,480,trim to target,true
+2026-09-30,sell,FIX,2140,trim to target,true
+2026-09-30,sell,ETN,2180,trim to target,true
+2026-09-30,sell,ANET,2292,trim to target,true
+2026-09-30,sell,EQIX,2429,trim to target,true

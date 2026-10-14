@@ -205,3 +205,22 @@ dl.glossary dd { margin: 0.15rem 0 0; }
 .mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.95rem; }
 .math { display: block; overflow-x: auto; margin: 0.3rem 0 0.6rem; font-size: 1.1rem; }
 .math math { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", math; }
+
+/* research page: files and accordions */
+.files { list-style: none; padding: 0; margin: 0.5rem 0 1.5rem; display: grid; gap: 0.75rem; }
+.files li { margin: 0; }
+.file { display: block; border: 1px solid var(--ink); border-radius: 6px; padding: 0.9rem 1.1rem 0.9rem 3.2rem; text-decoration: none; color: var(--ink); position: relative; }
+.file::before { content: "\2193"; position: absolute; left: 1.1rem; top: 0.85rem; font-size: 1.2rem; font-weight: 600; }
+.file strong { display: block; color: var(--link); font-size: 1.1rem; margin-bottom: 0.2rem; }
+.file span { font-size: 0.95rem; color: var(--muted); }
+.file:hover strong { text-decoration: underline; }
+.linkbtn { font: inherit; background: none; border: 0; color: var(--link); text-decoration: underline; padding: 0; cursor: pointer; }
+details.acc { border-top: 1px solid var(--rule); margin: 0; }
+details.acc:last-of-type { border-bottom: 1px solid var(--rule); }
+details.acc > summary { list-style: none; cursor: pointer; padding: 0.9rem 2rem 0.9rem 0; position: relative; }
+details.acc > summary::-webkit-details-marker { display: none; }
+details.acc > summary::after { content: "+"; position: absolute; right: 0.2rem; top: 0.75rem; font-size: 1.5rem; font-weight: 400; }
+details.acc[open] > summary::after { content: "\2212"; }
+details.acc .t { display: block; font-size: 1.2rem; font-weight: 600; }
+details.acc .d { display: block; font-weight: 400; font-size: 0.95rem; color: var(--muted); }
+.acc-in { padding: 0 0 1.5rem; }

@@ -28,13 +28,17 @@
     else if (r.bottom + 14 + h <= vh - 12) { left = Math.min(Math.max(12, r.left), vw - w - 12); top = r.bottom + 14; }
     else if (r.top - 14 - h >= 12) { left = Math.min(Math.max(12, r.left), vw - w - 12); top = r.top - 14 - h; }
     else { left = Math.max(12, Math.min(r.right, vw) - w - 12); top = Math.max(12, vh - h - 12); }
-    if (top + h > vh - 12) top = Math.max(12, vh - h - 12);
+    // Clamped on both edges, below the sticky demo banner: a tall spotlighted card scrolled past the top must not carry the buttons off screen with it.
+    var bn = document.querySelector(".banner"), minTop = bn ? Math.max(12, bn.getBoundingClientRect().bottom + 8) : 12;
+    top = Math.max(minTop, Math.min(top, vh - h - 12));
     pop.style.left = left + "px"; pop.style.top = top + "px";
   }
   function render() {
-    var s = steps[i], target = s.target ? el(s.target) : null;
+    var s = steps[i];
     document.querySelectorAll(".tour-target").forEach(function (t) { t.classList.remove("tour-target"); });
+    // before() runs first: it may create the step's target (step 4 reopens the company after a not-found look-up).
     if (s.before) s.before();
+    var target = s.target ? el(s.target) : null;
     if (target) { target.classList.add("tour-target"); var tr = target.getBoundingClientRect(); var wide = tr.width > window.innerWidth * 0.55 || tr.height > window.innerHeight * 0.45; target.scrollIntoView({ block: wide ? "start" : "center", behavior: "auto" }); }
     pop.innerHTML = "";
     var stepP = document.createElement("p"); stepP.className = "step"; stepP.textContent = "Step " + (i + 1) + " of " + steps.length; pop.appendChild(stepP);
@@ -44,12 +48,15 @@
     if (s.task) { task = document.createElement("p"); task.className = "task"; task.textContent = "Try it: " + s.task; pop.appendChild(task); }
     var btns = document.createElement("div"); btns.className = "btns";
     var back = document.createElement("button"); back.type = "button"; back.textContent = "Back"; back.disabled = i === 0;
+    // "Go to it" moves keyboard focus straight to the control the task names, instead of a long Shift+Tab walk back through the page.
+    var jump = null;
+    if (s.task && s.focus && target) { jump = document.createElement("button"); jump.type = "button"; jump.className = "jump"; jump.textContent = "Go to it"; jump.addEventListener("click", function () { var f = el(s.focus); if (f) f.focus(); }); }
     var next = document.createElement("button"); next.type = "button"; next.className = "next"; next.textContent = i === steps.length - 1 ? "Finish" : "Next";
     var skip = document.createElement("button"); skip.type = "button"; skip.className = "skip"; skip.textContent = "End tour";
     back.addEventListener("click", function () { go(i - 1); });
     next.addEventListener("click", function () { if (i === steps.length - 1) stop(); else go(i + 1); });
     skip.addEventListener("click", stop);
-    btns.appendChild(back); btns.appendChild(next); btns.appendChild(skip); pop.appendChild(btns);
+    btns.appendChild(back); if (jump) btns.appendChild(jump); btns.appendChild(next); btns.appendChild(skip); pop.appendChild(btns);
     if (poll) { clearInterval(poll); poll = null; }
     if (s.done) {
       var check = function () {

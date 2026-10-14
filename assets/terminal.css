@@ -68,8 +68,9 @@
 .term .card { background: var(--t-card); color: var(--t-text); border: 1px solid var(--t-border); border-radius: 12px; padding: 0.85rem 0.95rem; min-width: 0; scroll-margin-top: 4.5rem; display: block; text-decoration: none; }
 .term .card strong { display: inline; font-size: inherit; color: inherit; margin: 0; }
 .card:hover { border-color: var(--t-border2); }
-.card h3 { margin: 0 0 0.5rem; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; color: var(--t-text); line-height: 1.3; }
-.card h3 .badge { margin-left: auto; }
+.card .head { margin: 0 0 0.5rem; display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; }
+.card .head h3 { margin: 0; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--t-text); line-height: 1.3; }
+.card .head .badge { margin-left: auto; }
 .card p { margin: 0 0 0.5rem; font-size: 0.82rem; color: #c9d2e3; }
 .card p:last-child { margin-bottom: 0; }
 .info { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--t-border2); background: transparent; color: var(--t-muted); font-size: 0.75rem; font-weight: 700; display: inline-grid; place-items: center; padding: 0; flex: none; }
@@ -82,7 +83,7 @@
 .kpi .s { font-size: 0.7rem; color: var(--t-muted); }
 .card table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
 .card th, .card td { padding: 0.3rem 0.4rem 0.3rem 0; border-bottom: 1px solid var(--t-border); text-align: left; vertical-align: top; color: #d9e1ef; }
-.card th { color: var(--t-dim); font-weight: 600; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.card th { color: var(--t-dim); font-weight: 600; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
 .card tr:last-child td { border-bottom: 0; }
 .card .tscroll { overflow-x: auto; }
 .card svg { display: block; width: 100%; height: auto; }
@@ -99,7 +100,7 @@
 /* research search */
 .search { display: flex; gap: 0.5rem; align-items: center; padding: 0.75rem 0 0.25rem; position: relative; flex-wrap: wrap; scroll-margin-top: 5rem; }
 .search label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--t-dim); width: 100%; }
-.search input { flex: 1 1 14rem; background: var(--t-bg2); color: var(--t-text); border: 1px solid var(--t-border2); border-radius: 8px; padding: 0.6rem 0.8rem; font: inherit; font-size: 1rem; min-height: 2.75rem; text-transform: uppercase; }
+.search input { flex: 1 1 14rem; background: var(--t-bg2); color: var(--t-text); border: 1px solid #52698a; border-radius: 8px; padding: 0.6rem 0.8rem; font: inherit; font-size: 1rem; min-height: 2.75rem; text-transform: uppercase; }
 .search input::placeholder { text-transform: none; color: var(--t-dim); }
 .sugg { list-style: none; margin: 0; padding: 0.3rem 0 0; display: flex; flex-wrap: wrap; gap: 0.3rem; width: 100%; }
 .sugg li { margin: 0; }
@@ -122,7 +123,7 @@
 .lg i { display: inline-block; width: 1.2rem; border-top: 3px solid var(--t-blue); vertical-align: middle; margin-right: 0.35rem; }
 .lg i.spx { border-top-style: dashed; border-top-color: #d9a441; }
 .lg i.mark { border-top: 0; border-left: 2px dashed #9cc2ff; height: 0.9rem; width: 0; margin-right: 0.5rem; }
-.note { font-size: 0.72rem; color: var(--t-dim); margin: 0.3rem 0 0; }
+/* (.note is styled under "overrides" below, scoped to .term, so the page's own notes keep the page style) */
 .term .tip { position: absolute; pointer-events: none; display: none; background: #0b111a; color: var(--t-text); border: 1px solid var(--t-border2); border-radius: 6px; padding: 0.35rem 0.55rem; font-size: 0.78rem; line-height: 1.35; white-space: nowrap; z-index: 3; }
 .chartbox { position: relative; }
 
@@ -154,6 +155,8 @@
 .tour-pop .btns .skip { position: static; left: auto; top: auto; margin-left: auto; border-color: #d9d6cf; color: #55524c; }
 .tour-pop .btns button[disabled] { opacity: 0.45; cursor: default; }
 .tour-on .term .tour-target { position: relative; z-index: 52; }
+/* The sticky demo banner stays above a lifted target (52) and below the popover (55), so a spotlighted card scrolled under it never prints over its text. */
+.tour-on .banner { z-index: 53; }
 @media (max-width: 40rem) {
   .tour-pop { left: 1rem !important; right: 1rem; bottom: 1rem; top: auto !important; width: auto; max-height: 75vh; overflow-y: auto; }
   .term { font-size: 0.95rem; border-radius: 8px; }
@@ -161,19 +164,30 @@
   .card th { font-size: 0.7rem; }
   .grid { grid-template-columns: 1fr; }
   .tabs { flex-wrap: wrap; overflow-x: visible; }
-  .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+  /* iOS shows no scrollbar, so the right edge fades to say the row continues; the extra padding lets the last chip clear the fade. */
+  .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; padding-right: 2.5rem; mask-image: linear-gradient(to right, #000 calc(100% - 2rem), transparent); -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 2rem), transparent); }
+  .chips button { min-height: 2.5rem; }
   .strip { display: none; }
   .card th span.dim, .card td span.dim { display: block; font-weight: 400; }
   .card .tscroll { scrollbar-width: thin; }
   .info { width: 36px; height: 36px; font-size: 0.85rem; }
-  .term .tk { padding: 0.4rem 0.5rem; margin: -0.4rem -0.5rem; }
+  .term .tk { padding: 0.6rem 0.5rem; margin: -0.6rem -0.5rem; }
   .sugg button { min-height: 2.5rem; padding: 0.2rem 0.8rem; }
 }
 @media (prefers-reduced-motion: reduce) { .tour-hl { transition: none; } }
 
 /* overrides for page styles that leak into the terminal */
-.term .note, .term p.note, .term ul.note { background: transparent; border: 0; padding: 0; color: var(--t-dim); font-size: 0.72rem; margin: 0.3rem 0 0; }
+.term .note, .term p.note, .term ul.note { background: transparent; border: 0; padding: 0; color: var(--t-dim); font-size: 0.76rem; margin: 0.3rem 0 0; }
+.term .marks { max-width: 46rem; }
+.term .marks .cont { padding-left: 0.9rem; }
 .term .empty { color: var(--t-muted); }
+/* the collapsed list of panels that need live feeds */
+.term details { margin: 0; }
+.term summary { cursor: pointer; font-weight: 600; font-size: 0.85rem; color: var(--t-text); padding: 0.3rem 0; }
+.term summary:focus-visible { outline: 2px solid #9cc2ff; outline-offset: 2px; border-radius: 4px; }
+.term .panels { list-style: none; margin: 0.4rem 0 0; padding: 0; font-size: 0.8rem; color: #c9d2e3; }
+.term .panels li { margin: 0 0 0.4rem; padding-left: 0.9rem; text-indent: -0.9rem; }
+.term .panels li strong { color: var(--t-text); }
 .gates li.g { display: block; padding: 0; background: transparent; }
 .gates li .m { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px; padding: 0.15rem 0.3rem; text-align: center; }
 .gates li { grid-template-columns: 3.4rem 1fr auto; }

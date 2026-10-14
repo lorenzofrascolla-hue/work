@@ -120,7 +120,7 @@ th.num { white-space: normal; }
 
 /* Correction log entries */
 .entry { border-top: 1px solid var(--rule); padding: 1rem 0 0.2rem; }
-.entry h3, .entry h4 { margin: 0 0 0.4rem; font-size: 1.1rem; font-weight: 600; }
+.entry h3, .entry h4, .entry h5 { margin: 0 0 0.4rem; font-size: 1.1rem; font-weight: 600; }
 .entry p { margin-bottom: 0.6rem; }
 .label { font-weight: 600; }
 .tag {

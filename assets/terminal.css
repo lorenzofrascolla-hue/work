@@ -1,7 +1,7 @@
 /* The dashboard replica. Dark, like the real terminal; the page around it stays white. */
 .term {
   --t-bg: #06080f; --t-bg2: #0b111a; --t-card: #0f1622; --t-card2: #151d2a;
-  --t-border: #1f2d40; --t-border2: #374a68; --t-text: #eef2f8; --t-muted: #8e9bb0; --t-dim: #5f6c82;
+  --t-border: #1f2d40; --t-border2: #374a68; --t-text: #eef2f8; --t-muted: #8e9bb0; --t-dim: #7f8ca3;
   --t-blue: #4880d0; --t-blue2: #729fe2; --t-green: #5fa98c; --t-red: #e06464; --t-amber: #d9a441;
   background: var(--t-bg); color: var(--t-text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
@@ -19,9 +19,11 @@
 .term .up { color: var(--t-green); } .term .down { color: var(--t-red); } .term .flat { color: var(--t-muted); }
 .term .muted { color: var(--t-muted); } .term .dim { color: var(--t-dim); }
 .term .num { font-variant-numeric: tabular-nums; text-align: right; }
+.term .tk { background: none; border: 0; color: #9cc2ff; padding: 0; font: inherit; font-weight: 700; cursor: pointer; }
+.term h3:focus-visible { outline: 2px solid #9cc2ff; outline-offset: 2px; border-radius: 4px; }
 
-/* top bar */
-.termbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; padding: 0.9rem 1rem 0.6rem; border-bottom: 1px solid var(--t-border); }
+/* top bar (scroll margin keeps it clear of the sticky demo banner when the tour scrolls to it) */
+.termbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; padding: 0.9rem 1rem 0.6rem; border-bottom: 1px solid var(--t-border); scroll-margin-top: 5rem; }
 .termbar .logo { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, #1f3b6e, #4880d0); display: grid; place-items: center; font-weight: 700; color: #fff; flex: none; }
 .termbar .name { font-weight: 700; font-size: 1.05rem; }
 .termbar .sub { color: var(--t-muted); font-size: 0.8rem; }
@@ -70,12 +72,12 @@
 .card h3 .badge { margin-left: auto; }
 .card p { margin: 0 0 0.5rem; font-size: 0.82rem; color: #c9d2e3; }
 .card p:last-child { margin-bottom: 0; }
-.info { width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--t-border2); background: transparent; color: var(--t-muted); font-size: 0.7rem; font-weight: 700; display: inline-grid; place-items: center; padding: 0; flex: none; }
+.info { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--t-border2); background: transparent; color: var(--t-muted); font-size: 0.75rem; font-weight: 700; display: inline-grid; place-items: center; padding: 0; flex: none; }
 .info[aria-expanded="true"] { background: var(--t-blue); color: #fff; border-color: var(--t-blue); }
 .explain { background: var(--t-bg2); border-left: 3px solid var(--t-blue); border-radius: 0 8px 8px 0; padding: 0.55rem 0.7rem; margin: 0 0 0.6rem; font-size: 0.8rem; color: #d9e1ef; }
 .explain[hidden] { display: none; }
 .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr)); gap: 0.6rem 0.9rem; margin: 0.2rem 0 0.6rem; }
-.kpi .l { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--t-dim); }
+.kpi .l { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--t-dim); }
 .kpi .v { font-size: 1.2rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.2; }
 .kpi .s { font-size: 0.7rem; color: var(--t-muted); }
 .card table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
@@ -95,7 +97,7 @@
 .tbtn[disabled] { opacity: 0.5; cursor: not-allowed; }
 
 /* research search */
-.search { display: flex; gap: 0.5rem; align-items: center; padding: 0.75rem 0 0.25rem; position: relative; flex-wrap: wrap; }
+.search { display: flex; gap: 0.5rem; align-items: center; padding: 0.75rem 0 0.25rem; position: relative; flex-wrap: wrap; scroll-margin-top: 5rem; }
 .search label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--t-dim); width: 100%; }
 .search input { flex: 1 1 14rem; background: var(--t-bg2); color: var(--t-text); border: 1px solid var(--t-border2); border-radius: 8px; padding: 0.6rem 0.8rem; font: inherit; font-size: 1rem; min-height: 2.75rem; text-transform: uppercase; }
 .search input::placeholder { text-transform: none; color: var(--t-dim); }
@@ -147,13 +149,19 @@
 .tour-pop .btns { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
 .tour-pop .btns button { font: inherit; font-size: 0.95rem; border: 1px solid #1a1a1a; background: #fff; color: #1a1a1a; border-radius: 5px; padding: 0.4rem 0.8rem; cursor: pointer; min-height: 2.6rem; }
 .tour-pop .btns .next { background: #1a1a1a; color: #fff; }
-.tour-pop .btns .skip { margin-left: auto; border-color: #d9d6cf; color: #55524c; }
+/* "skip" is also the page's skip-to-content class, which is parked off screen; the End tour button must stay in the row. */
+.tour-pop .btns .skip { position: static; left: auto; top: auto; margin-left: auto; border-color: #d9d6cf; color: #55524c; }
 .tour-pop .btns button[disabled] { opacity: 0.45; cursor: default; }
 .tour-on .term .tour-target { position: relative; z-index: 52; }
 @media (max-width: 40rem) {
   .tour-pop { left: 1rem !important; right: 1rem; bottom: 1rem; top: auto !important; width: auto; max-height: 55vh; overflow-y: auto; }
   .term { font-size: 0.85rem; border-radius: 8px; }
   .grid { grid-template-columns: 1fr; }
+  .tabs { flex-wrap: wrap; overflow-x: visible; }
+  .card th span.dim, .card td span.dim { display: block; font-weight: 400; }
+  .card .tscroll { scrollbar-width: thin; }
+  .info { width: 28px; height: 28px; font-size: 0.8rem; }
+  .term .tk { padding: 0.4rem 0; margin: -0.4rem 0; }
 }
 @media (prefers-reduced-motion: reduce) { .tour-hl { transition: none; } }
 

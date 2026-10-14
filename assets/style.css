@@ -54,6 +54,7 @@ main { padding-top: 2.5rem; padding-bottom: 3rem; }
 
 h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 1rem; font-weight: 600; }
 h2 { font-size: 1.45rem; line-height: 1.3; margin: 3rem 0 0.75rem; font-weight: 600; }
+h2[id] { scroll-margin-top: 5rem; }
 h3 { font-size: 1.15rem; line-height: 1.35; margin: 2rem 0 0.5rem; font-weight: 600; }
 p { margin: 0 0 1.1rem; }
 ul, ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
@@ -119,7 +120,7 @@ th.num { white-space: normal; }
 
 /* Correction log entries */
 .entry { border-top: 1px solid var(--rule); padding: 1rem 0 0.2rem; }
-.entry h4 { margin: 0 0 0.4rem; font-size: 1.1rem; font-weight: 600; }
+.entry h3, .entry h4 { margin: 0 0 0.4rem; font-size: 1.1rem; font-weight: 600; }
 .entry p { margin-bottom: 0.6rem; }
 .label { font-weight: 600; }
 .tag {
@@ -221,6 +222,7 @@ dl.glossary dd { margin: 0.15rem 0 0; }
   table { font-size: 0.9rem; }
   th, td { padding-right: 0.45rem; }
   .steps-nav button { padding: 0.45rem 0.7rem; }
+  .banner { font-size: 0.9rem; padding: 0.4rem 0.75rem; line-height: 1.3; }
 }
 
 @media print {

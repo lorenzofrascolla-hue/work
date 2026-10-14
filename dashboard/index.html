@@ -8,8 +8,8 @@
 <meta name="description" content="A clickable demo copy of my research and paper-trading dashboard, built from saved data. Paper trading only, no real money.">
 <link rel="icon" href="data:,">
 <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/style.css?v=5">
-<link rel="stylesheet" href="../assets/terminal.css?v=5">
+<link rel="stylesheet" href="../assets/style.css?v=6">
+<link rel="stylesheet" href="../assets/terminal.css?v=6">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -19,7 +19,7 @@
 <h1>Paper-trading research system: demo</h1>
 <p class="lede">A working copy of the research dashboard I built and run myself. You can click through all five screens, look up any of the 25 companies on my research list, and read what every panel does.</p>
 <div class="note">
-<p><strong>What this is and is not.</strong> This is a demo, not the live system. It is built from data the system saved on 12 October 2026 and nothing on it updates or connects to anything. Every panel here exists on the real dashboard. Panels that need live market, news or filing feeds are shown with their description but are not computed in this snapshot. The account is a practice account at a broker: every balance, position and order is simulated.</p>
+<p><strong>What this is and is not.</strong> This is a demo, not the live system. It is built from data the system saved on 12 October 2026 and nothing on it updates or connects to anything. Prices, positions and the company research are as of 12 October 2026; the saved file dates the morning scan and the news-shock gate 13 October 2026. Every panel here exists on the real dashboard. Panels that need live market, news or filing feeds are shown with their description but are not computed in this snapshot. The account is a practice account at a broker: every balance, position and order is simulated. The dashboard carries the name Simancas Capital, the name of my independent research publication; it is not a company or a fund.</p>
 </div>
 <p class="controls">
 <button type="button" class="ctl primary" id="btn-tour">Start the guided tour (about 3 minutes)</button>
@@ -28,7 +28,8 @@
 </p>
 <noscript><p class="note">The dashboard needs JavaScript to draw itself. Without it, the saved data files are listed under About the data below, and the home page links the rest of the site.</p></noscript>
 
-<div class="term" id="term" aria-label="Dashboard demo">
+<section class="term" id="term" aria-labelledby="term-h">
+<h2 id="term-h" class="sr">Dashboard demo</h2>
 <div class="termbar" id="termbar">
 <div class="logo" aria-hidden="true">S</div>
 <div><div class="name">Simancas Capital</div><div class="sub">Research and trading terminal &middot; paper account</div></div>
@@ -36,15 +37,15 @@
 </div>
 <div class="statusbar"><span class="k">PAPER</span><span>Prices <span class="badge snap">snapshot</span></span><span>Filings <span class="badge snap">snapshot</span></span><span>Forecasts <span class="badge snap">snapshot</span></span><span>News, macro <span class="badge off">off</span></span><span>Orders <span class="badge off">off</span></span></div>
 <div class="tabs" id="tabs" role="tablist" aria-label="Dashboard screens"></div>
-</div>
+</section>
 
 <h2 id="about">About the data</h2>
 <p>The demo is drawn from these saved files and nothing else. Each one opens or downloads directly.</p>
 <ul>
 <li><a href="../data/replica.json">replica.json</a>: the account, positions, company research run, gate results, factor run, backtest and the desk's run log, as exported from the system.</li>
-<li><a href="../data/prices.json">prices.json</a>: one year of official daily closing prices for the 25 companies and the S&amp;P 500 fund, from Nasdaq.com.</li>
+<li><a href="../data/prices.json">prices.json</a>: thirteen months of official daily closing prices (15 September 2025 to 12 October 2026) for the 25 companies and the S&amp;P 500 fund, from Nasdaq.com.</li>
 <li><a href="../data/positions.csv">positions.csv</a>: the 14 positions at the snapshot.</li>
-<li><a href="../data/equity-history.csv">equity-history.csv</a>: the account value for every trading day, next to the S&amp;P 500 close.</li>
+<li><a href="../data/equity-history.csv">equity-history.csv</a>: the account value for every trading day with a usable record (four days are missing; see below), next to the S&amp;P 500 close.</li>
 <li><a href="../data/paper-trades-dashboard.csv">paper-trades-dashboard.csv</a>: every simulated order sent through the dashboard (227 records).</li>
 <li><a href="../data/paper-trades-automated.csv">paper-trades-automated.csv</a>: the simulated orders planned by the automated morning run (92 records).</li>
 <li><a href="../data/blocked-orders.csv">blocked-orders.csv</a>: the 96 simulated buys cancelled by the exposure limit.</li>
@@ -106,7 +107,7 @@
 <footer class="site-footer">
 <p>Last updated: 13 October 2026. <a href="../">Home</a></p>
 </footer>
-<script src="../assets/tour.js?v=5" defer></script>
-<script src="../assets/terminal.js?v=4" defer></script>
+<script src="../assets/tour.js?v=6" defer></script>
+<script src="../assets/terminal.js?v=6" defer></script>
 </body>
 </html>

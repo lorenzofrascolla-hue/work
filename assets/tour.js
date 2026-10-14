@@ -12,13 +12,16 @@
   }
   function place(target) {
     var r = target ? target.getBoundingClientRect() : null;
+    if (r && !r.width && !r.height) r = null; // the target is on a hidden screen (a task switched tabs): no spotlight
     if (r) {
       var pad = 6;
       hl.style.top = (r.top - pad) + "px"; hl.style.left = (r.left - pad) + "px";
       hl.style.width = (r.width + pad * 2) + "px"; hl.style.height = (r.height + pad * 2) + "px"; hl.style.display = "block";
     } else { hl.style.display = "none"; }
     var w = pop.offsetWidth, h = pop.offsetHeight, vw = window.innerWidth, vh = window.innerHeight;
-    if (vw <= 640 || !r) { pop.style.left = ""; pop.style.top = ""; return; }
+    if (vw <= 640) { pop.style.left = ""; pop.style.top = ""; return; }
+    // No visible target on a wide screen: keep the popover where it was, or centre it near the top if it has nowhere yet.
+    if (!r) { if (!pop.style.left) { pop.style.left = Math.round((vw - w) / 2) + "px"; pop.style.top = "80px"; } return; }
     var left, top;
     if (r.right + 16 + w <= vw - 12) { left = r.right + 16; top = r.top; }
     else if (r.left - 16 - w >= 12) { left = r.left - 16 - w; top = r.top; }
@@ -50,7 +53,7 @@
     if (poll) { clearInterval(poll); poll = null; }
     if (s.done) {
       var check = function () {
-        if (s.done()) { task.classList.add("done"); task.textContent = "Done. " + (s.doneText || "Press Next to continue."); clearInterval(poll); poll = null; }
+        if (s.done()) { task.classList.add("done"); task.textContent = "Done. " + ((typeof s.doneText === "function" ? s.doneText() : s.doneText) || "Press Next to continue."); clearInterval(poll); poll = null; place(target); }
       };
       if (s.done()) check(); else poll = setInterval(check, 400);
     }
@@ -71,7 +74,9 @@
     go(0);
   }
   window.addEventListener("resize", function () { if (i >= 0) place(steps[i].target ? el(steps[i].target) : null); });
-  window.addEventListener("scroll", function () { if (i >= 0 && window.innerWidth > 640) place(steps[i].target ? el(steps[i].target) : null); }, { passive: true });
-  document.addEventListener("keydown", function (e) { if (i < 0) return; if (e.key === "Escape") stop(); if (e.key === "ArrowRight" && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) go(i + 1); if (e.key === "ArrowLeft" && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) go(i - 1); });
+  // On phones place() only moves the spotlight (the popover is pinned by CSS), so it runs on scroll at every width.
+  window.addEventListener("scroll", function () { if (i >= 0) place(steps[i].target ? el(steps[i].target) : null); }, { passive: true });
+  // Arrow keys step the tour only when focus is in the popover or on the page body, so the screen tabs keep their own arrow keys.
+  document.addEventListener("keydown", function (e) { if (i < 0) return; if (e.key === "Escape") stop(); var a = document.activeElement, inPop = !a || a === document.body || !!a.closest(".tour-pop"); if (e.key === "ArrowRight" && inPop) go(i + 1); if (e.key === "ArrowLeft" && inPop) go(i - 1); });
   window.Tour = { start: start, stop: stop, active: function () { return i >= 0; } };
 })();

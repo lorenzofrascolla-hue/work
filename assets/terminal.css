@@ -42,8 +42,8 @@
 .tabs button { background: transparent; color: var(--t-text); border: 1px solid var(--t-border); border-radius: 999px; padding: 0.45rem 0.9rem; font-weight: 600; white-space: nowrap; min-height: 2.5rem; }
 .tabs button[aria-selected="true"] { background: #1c3a66; border-color: #2f5fa6; color: #fff; }
 .tabs button:focus-visible, .term button:focus-visible, .term input:focus-visible { outline: 2px solid #9cc2ff; outline-offset: 2px; }
-.chips { display: flex; gap: 0.3rem; padding: 0.5rem 1rem; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--t-border); }
-.chips::-webkit-scrollbar { display: none; }
+/* Wide screens show every chip (the row wraps); phones scroll it sideways with a visible thin scrollbar. */
+.chips { display: flex; flex-wrap: wrap; gap: 0.3rem; padding: 0.5rem 1rem; border-bottom: 1px solid var(--t-border); }
 .chips button { background: var(--t-bg2); color: var(--t-muted); border: 1px solid var(--t-border); border-radius: 999px; padding: 0.25rem 0.6rem; font-size: 0.75rem; white-space: nowrap; min-height: 2rem; }
 .chips button:hover { color: var(--t-text); border-color: var(--t-border2); }
 .lead { padding: 0.75rem 1rem 0; color: var(--t-muted); font-size: 0.85rem; }
@@ -113,6 +113,7 @@
 .gates li .x { grid-column: 2 / -1; color: #c9d2e3; font-size: 0.78rem; margin-top: 0.15rem; }
 .gates li .x[hidden] { display: none; }
 .gates .g { grid-column: 1 / -1; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--t-dim); margin-top: 0.3rem; }
+.gates .g .gsub { display: block; text-transform: none; letter-spacing: 0; font-size: 0.72rem; color: var(--t-muted); margin-top: 0.05rem; }
 .gatehead { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem; }
 .gatehead .tbtn { padding: 0.3rem 0.65rem; min-height: 2.25rem; font-size: 0.8rem; }
 
@@ -154,14 +155,19 @@
 .tour-pop .btns button[disabled] { opacity: 0.45; cursor: default; }
 .tour-on .term .tour-target { position: relative; z-index: 52; }
 @media (max-width: 40rem) {
-  .tour-pop { left: 1rem !important; right: 1rem; bottom: 1rem; top: auto !important; width: auto; max-height: 55vh; overflow-y: auto; }
-  .term { font-size: 0.85rem; border-radius: 8px; }
+  .tour-pop { left: 1rem !important; right: 1rem; bottom: 1rem; top: auto !important; width: auto; max-height: 75vh; overflow-y: auto; }
+  .term { font-size: 0.95rem; border-radius: 8px; }
+  .card table { font-size: 0.85rem; }
+  .card th { font-size: 0.7rem; }
   .grid { grid-template-columns: 1fr; }
   .tabs { flex-wrap: wrap; overflow-x: visible; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+  .strip { display: none; }
   .card th span.dim, .card td span.dim { display: block; font-weight: 400; }
   .card .tscroll { scrollbar-width: thin; }
-  .info { width: 28px; height: 28px; font-size: 0.8rem; }
-  .term .tk { padding: 0.4rem 0; margin: -0.4rem 0; }
+  .info { width: 36px; height: 36px; font-size: 0.85rem; }
+  .term .tk { padding: 0.4rem 0.5rem; margin: -0.4rem -0.5rem; }
+  .sugg button { min-height: 2.5rem; padding: 0.2rem 0.8rem; }
 }
 @media (prefers-reduced-motion: reduce) { .tour-hl { transition: none; } }
 
@@ -178,5 +184,10 @@
 .term .gates li.g { padding-left: 0; }
 @media (max-width: 40rem) {
   .gates li { grid-template-columns: 3.4rem 1fr; }
-  .gates li .d { grid-column: 2; white-space: normal; }
+  .gates li .d { grid-column: 2; white-space: normal; font-size: 0.78rem; }
+  /* the smallest text in the box is lifted a little on phones */
+  .term .note, .term p.note, .term ul.note { font-size: 0.78rem; }
+  .term .kpi .l { font-size: 0.72rem; }
+  .term .kpi .s { font-size: 0.76rem; }
+  .term .badge { font-size: 0.66rem; }
 }

@@ -8,8 +8,8 @@
 <meta name="description" content="A clickable demo copy of my research and paper-trading dashboard, built from saved data. Paper trading only, no real money.">
 <link rel="icon" href="data:,">
 <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/style.css?v=6">
-<link rel="stylesheet" href="../assets/terminal.css?v=6">
+<link rel="stylesheet" href="../assets/style.css?v=7">
+<link rel="stylesheet" href="../assets/terminal.css?v=7">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -45,17 +45,17 @@
 <li><a href="../data/replica.json">replica.json</a>: the account, positions, company research run, gate results, factor run, backtest and the desk's run log, as exported from the system.</li>
 <li><a href="../data/prices.json">prices.json</a>: thirteen months of official daily closing prices (15 September 2025 to 12 October 2026) for the 25 companies and the S&amp;P 500 fund, from Nasdaq.com.</li>
 <li><a href="../data/positions.csv">positions.csv</a>: the 14 positions at the snapshot.</li>
-<li><a href="../data/equity-history.csv">equity-history.csv</a>: the account value for every trading day with a usable record (four days are missing; see below), next to the S&amp;P 500 close.</li>
+<li><a href="../data/equity-history.csv">equity-history.csv</a>: the account value for every trading day with a usable record (four days are missing; see below), next to the S&amp;P 500 close. It also holds an earlier $100,000 practice account that ran from 2 June to 2 July 2026 and ended down 8.5% (S&amp;P 500 down 1.7%) before the reset; that account is in this file and in summary.json and is not on the chart.</li>
 <li><a href="../data/paper-trades-dashboard.csv">paper-trades-dashboard.csv</a>: every simulated order sent through the dashboard (227 records).</li>
 <li><a href="../data/paper-trades-automated.csv">paper-trades-automated.csv</a>: the simulated orders planned by the automated morning run (92 records).</li>
 <li><a href="../data/blocked-orders.csv">blocked-orders.csv</a>: the 96 simulated buys cancelled by the exposure limit.</li>
 <li><a href="../data/stopped-runs.csv">stopped-runs.csv</a>: the mornings the automated run stopped itself, with the reason as recorded.</li>
-<li><a href="../data/risk-gates.json">risk-gates.json</a>: the 13 gates as rules.</li>
+<li><a href="../data/risk-gates.json">risk-gates.json</a>: the 13 gates as rules. Its latest_scan entry dates the 46-company scan 12 October; replica.json, which the demo follows, dates it 13 October.</li>
 <li><a href="../data/summary.json">summary.json</a>: the headline numbers in one file.</li>
 </ul>
 <details>
 <summary>How the numbers were checked</summary>
-<p>The S&amp;P 500 line never uses the system's own benchmark numbers. It uses official closing values from S&amp;P Dow Jones Indices via the Federal Reserve Bank of St. Louis (FRED series SP500), starting from the close of 2 July 2026, the last close before the account reset. The system's recorded benchmark prices track those closes within 0.3% over the whole period.</p>
+<p>The S&amp;P 500 line on the Portfolio &amp; Risk chart never uses the system's own benchmark numbers. It uses official closing values from S&amp;P Dow Jones Indices via the Federal Reserve Bank of St. Louis (FRED series SP500), starting from the close of 2 July 2026, the last close before the account reset. The system's recorded benchmark prices track those closes within 0.3% over the whole period.</p>
 <p>The account line is the value the system recorded for each trading day. Rebuilding the latest account value from the official closing prices of the 14 holdings lands within 0.3% of what the system recorded, and the system's two separate records of account value agree within 0.3% on 41 of the 42 days they share. On 22 days the history file held a row from a built-in sample portfolio instead of the practice account; those rows were left out. Four trading days have no usable record and the line runs straight across them.</p>
 <p>Company fundamentals, forensic scores, price targets and forecast odds are from the system's own research run on each company's filings, saved on 12 October 2026, shown as recorded. The trend, momentum and volatility gates in the demo are recomputed from the official closes above.</p>
 </details>
@@ -73,7 +73,7 @@
 <dt>Account value (equity)</dt><dd>What the account would be worth if everything in it were sold at the latest prices.</dd>
 <dt>S&amp;P 500</dt><dd>An index that tracks 500 large US companies, the usual yardstick for the US stock market. SPY is a fund that tracks it.</dd>
 <dt>Benchmark</dt><dd>The yardstick a portfolio is compared with. Here it is the S&amp;P 500.</dd>
-<dt>Research list (SPG universe)</dt><dd>The 25 companies my research paper points at: grid equipment, power producers, data-center landlords and chip suppliers.</dd>
+<dt>Research list (SPG universe)</dt><dd>SPG is the Silicon-Power Gap, my research paper. The research list is the 25 companies it points at: grid equipment, power producers, data-center landlords and chip suppliers.</dd>
 <dt>Risk gate</dt><dd>A yes-or-no rule a company must pass before the system will flag it as a buy candidate. There are 13.</dd>
 <dt>Exposure limit</dt><dd>A cap on the total size of the portfolio compared with the account value. The last check before any simulated order is sent.</dd>
 <dt>Circuit breaker</dt><dd>A rule that stops the automated run from adding risk after the account falls too far behind the index, until the rules re-arm it.</dd>
@@ -85,7 +85,7 @@
 <dt>CVaR</dt><dd>The average loss on the days that are worse than the VaR day.</dd>
 <dt>Beta</dt><dd>How much the book moves for a 1% move in the S&amp;P 500. A beta of 1.5 means it tends to move 1.5%.</dd>
 <dt>Correlation</dt><dd>How closely two things move together, from 1.0 (in step) to 0 (unrelated).</dd>
-<dt>Effective bets</dt><dd>How many truly separate positions a portfolio holds once size and overlap are counted.</dd>
+<dt>Effective holdings</dt><dd>How many separate positions a portfolio amounts to once position size is counted: 1 divided by the sum of the squared weights. A few large positions count for less than the same number of equal ones. It does not account for correlation.</dd>
 <dt>Drawdown</dt><dd>The fall from the highest value reached to a later low.</dd>
 <dt>Active share</dt><dd>How different a portfolio is from its reference mix, from 0% (identical) to 100%.</dd>
 <dt>Altman Z-score</dt><dd>A 1968 formula using five accounting ratios to flag companies at risk of financial distress. Below 1.81 is the distress zone.</dd>
@@ -107,7 +107,7 @@
 <footer class="site-footer">
 <p>Last updated: 13 October 2026. <a href="../">Home</a></p>
 </footer>
-<script src="../assets/tour.js?v=6" defer></script>
-<script src="../assets/terminal.js?v=6" defer></script>
+<script src="../assets/tour.js?v=7" defer></script>
+<script src="../assets/terminal.js?v=7" defer></script>
 </body>
 </html>

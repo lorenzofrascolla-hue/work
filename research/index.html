@@ -8,7 +8,7 @@
 <meta name="description" content="Supporting files for The Silicon-Power Gap: the source list and the correction log from version 37 to version 39.">
 <link rel="icon" href="data:,">
 <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/style.css?v=6">
+<link rel="stylesheet" href="../assets/style.css?v=7">
 
 </head>
 <body>
@@ -16,17 +16,17 @@
 <header class="site-header"><a href="../">Lorenzo Frascolla: home</a></header>
 <main id="main">
 <h1>The Silicon-Power Gap: supporting files</h1>
-<p class="lede">The paper argues that transformer supply and grid connections, not AI chips, limit how fast AI data centers can be built.</p>
+<p class="lede">The paper argues that electrical transformer supply and grid connections, not AI chips, limit how fast AI data centers can be built.</p>
 <p>These are the supporting files for version 39 of the paper (6 August 2026). The paper itself is not posted on this site; this page holds the material behind it: the sources, the corrections, what senior readers said, and the formulas. It is independent student research.</p>
 
-<p>On this page: <a href="#model">Excel model</a>, <a href="#sources">source list</a>, <a href="#corrections">correction log</a>, <a href="#readers">what the senior readers said</a>, <a href="#formulas">the formulas and where I learned them</a>, <a href="#writing">related writing</a>.</p>
+<p>On this page: <a href="#model">Excel model</a>, <a href="#sources">source list</a>, <a href="#corrections">correction log</a>, <a href="#readers">what the senior readers said</a>, <a href="#formulas">the formulas and where I learned them</a>, <a href="#writing">related writing</a>, <a href="#ai">how AI was used</a>.</p>
 
 <h2 id="model">Excel model</h2>
 <p>The Excel model is not posted yet.</p>
 
 <h2 id="sources">Source list</h2>
 <p>243 sources in 15 groups, from the paper’s bibliography (its eighth revision, August 2026), updated to match version 39 of the paper on 6 August 2026. The list is posted as exported; a few sources appear in more than one group. Links are included where a source has one.</p>
-<details>
+<details id="sources-details">
 <summary>Show all 243 sources</summary>
 <h3>Books, Monographs &amp; Major Reports</h3>
 <ul class="sources">
@@ -316,13 +316,16 @@
 <li>U.S. Department of Energy. 2025. Advanced-reactor and small-modular-reactor program materials. Washington, DC: DOE. <a href="https://www.energy.gov/">https://www.energy.gov/</a>.</li>
 <li>Wiesner, Philipp, et al. 2025. “Dirty Bits in Low-Earth Orbit: The Carbon Footprint of Launching Computers.” ACM SIGEnergy Energy Informatics Review; preprint arXiv:2508.06250. <a href="https://arxiv.org/abs/2508.06250">https://arxiv.org/abs/2508.06250</a>. [cited in text as Scientific American 2025 / Saarland analysis]</li>
 </ul>
+<p class="small"><a href="#sources" id="hide-sources">Hide the source list</a></p>
 </details>
 
 <h2 id="corrections">Correction log, version 37 to version 39</h2>
-<p>After critique from senior readers the paper was rebuilt twice: version 38 (3 August 2026) and version 39 (6 August 2026). This log lists what was wrong, what changed, and in which version. Most headline numbers went down. Any version before 39 is superseded.</p>
+<p>After the senior readers' critiques and my own re-audit in August, the paper was rebuilt twice: version 38 (3 August 2026) and version 39 (6 August 2026). This log lists what was wrong, what changed, and in which version. Most headline numbers went down. Any version before 39 is superseded.</p>
 
 <h3>Version 38, 3 August 2026 (corrections to version 37)</h3>
 <div class="table-wrap"><table><caption>Headline figures that moved</caption><thead><tr><th scope="col">Figure</th><th scope="col" class=num>v37</th><th scope="col" class=num>v38</th></tr></thead><tbody><tr><th scope=row>Option value per 75 MW slot</th><td class=num>$21.8M</td><td class=num>$19.7M</td></tr><tr><th scope=row>Total option value, 16 slots</th><td class=num>$348M</td><td class=num>$315M</td></tr><tr><th scope=row>Operator X, net</th><td class=num>$324M</td><td class=num>$265M</td></tr><tr><th scope=row>Operator H, net</th><td class=num>$152M</td><td class=num>$115M</td></tr><tr><th scope=row>Combined two-company figure</th><td class=num>$476M</td><td class=num>$380M</td></tr><tr><th scope=row>Miami to Helsinki aging ratio</th><td class=num>3.3x</td><td class=num>6.0x</td></tr></tbody></table></div>
+<details>
+<summary>Show the 27 corrections in version 38, with the judgment calls and open items</summary>
 <h4 class="group">The option model</h4>
 <div class="entry"><h4>The option was written on two different things <span class="tag">Fixed in v38</span></h4><p><span class="label">What was wrong:</span> The value being bought (S, $61M) was the benefit of speeding up one 75 MW build, but the price paid (K, $42M) was the full remaining cost of the build. Those two cannot be paired in one option.</p><p><span class="label">What changed:</span> Both now sit on the speed-up. S is its discounted present value ($55.1M). K is the carrying cost of pulling a $450M fit-out forward by two years ($37.9M).</p></div>
 <div class="entry"><h4>The price paid was too low by about ten times <span class="tag">Fixed in v38</span></h4><p><span class="label">What was wrong:</span> $42M for 75 MW implies $0.56M per MW. Published construction cost indices put the comparable cost near $6.0M per MW. The low figure was the main reason the option looked so valuable.</p><p><span class="label">What changed:</span> The $6.0M per MW benchmark is stated and cited.</p></div>
@@ -368,9 +371,12 @@
 <p>These are choices, not corrections, listed so a reader can change them: a 45 year non-heat failure life; Northern Virginia as the reference site; discounting at the risk-free rate (at 8% the per-slot value falls to roughly $17M); the $6.0M per MW cost benchmark; the conservative free-cooling threshold; and the insurance rate, which version 39 then corrected.</p></div>
 <div class="entry"><h4>Known open items <span class="tag">v38</span></h4>
 <p>The company-by-company section carries no citations. It is priced as of 1 June 2026 and has not been re-priced. Eight rated companies carry no stated catalyst. One diagram uses coloured text labels.</p></div>
+</details>
 
 <h3>Version 39, 6 August 2026 (corrections to version 38)</h3>
 <div class="table-wrap"><table><caption>Headline figures</caption><thead><tr><th scope="col">Figure</th><th scope="col" class=num>v38</th><th scope="col" class=num>v39</th></tr></thead><tbody><tr><th scope=row>Operator X, net</th><td class=num>$265M</td><td class=num>$276M</td></tr><tr><th scope=row>Operator H, net</th><td class=num>$115M</td><td class=num>$104M</td></tr><tr><th scope=row>Combined two-company figure</th><td class=num>$380M</td><td class=num>$380M</td></tr><tr><th scope=row>Miami heat-related cost</th><td class=num>−$41M</td><td class=num>−$31M</td></tr><tr><th scope=row>Option value per 75 MW slot</th><td class=num>$19.7M</td><td class=num>$19.7M</td></tr><tr><th scope=row>Miami to Helsinki aging ratio</th><td class=num>6.0x</td><td class=num>6.0x</td></tr></tbody></table></div>
+<details>
+<summary>Show the 8 corrections in version 39</summary>
 <div class="entry"><h4>The insurance rate had no market support <span class="tag">Fixed in v39</span></h4><p><span class="label">What was wrong:</span> v38 assumed $200K per transformer per year on a $9.2M asset, a 2.2% rate, and flagged it as the weakest number in the paper.</p><p><span class="label">What changed:</span> Re-based to 0.30% of replacement value ($27.6K per unit per year), inside a published range of 0.2% to 0.5%. About $11M moves from Operator H to Operator X. The combined figure stays at about $380M.</p></div>
 <div class="entry"><h4>The timing argument rested on a regulatory calendar <span class="tag">Fixed in v39</span></h4><p><span class="label">What was wrong:</span> v38 treated the market repricing as triggered by a calendar of disclosure rules.</p><p><span class="label">What changed:</span> Following feedback from an academic reviewer, timing now depends on which route a competitor uses to press the issue: investor disclosure, an EU mandate, FTC enforcement or private litigation. The paper says it cannot tell which route will be used, or whether any will, and splits its confidence: Medium on the mechanism, Low on the timing.</p></div>
 <div class="entry"><h4>EU rules were cited as pending when they had been adopted <span class="tag">Fixed in v39</span></h4><p><span class="label">What was wrong:</span> The &quot;Omnibus&quot; packages were described as pending.</p><p><span class="label">What changed:</span> They are cited as adopted law: Regulation (EU) 2025/2083, Directive (EU) 2025/794 and Directive (EU) 2026/470.</p></div>
@@ -379,6 +385,7 @@
 <div class="entry"><h4>The EU data center database entry was out of date <span class="tag">Fixed in v39</span></h4><p><span class="label">What was wrong:</span> The entry did not include the first aggregated release.</p><p><span class="label">What changed:</span> It now records the April 2026 release (776 facilities, 6.4 GW, weighted average PUE 1.36, partial country coverage) and that facility-level figures remain confidential.</p></div>
 <div class="entry"><h4>One figure appeared with two values <span class="tag">Fixed in v39</span></h4><p><span class="label">What was wrong:</span> The Texas grid carbon intensity was 375 gCO₂/kWh in one section and 400 in another.</p><p><span class="label">What changed:</span> Harmonised to about 375 in both.</p></div>
 <div class="entry"><h4>Smaller fixes <span class="tag">Fixed in v39</span></h4><p><span class="label">What was wrong:</span> A legal timing statistic was attributed too broadly; the confidence scale used four levels in the text and three in the chart; one bibliography entry was duplicated; some new material lacked references.</p><p><span class="label">What changed:</span> The statistic is attributed to trademark cases with the source’s own caveat; the scale is three levels everywhere; the duplicate is removed; every new source has a reference with a link; the title block carries the version number and the as-of date for market data.</p></div>
+</details>
 <div class="entry"><h4>What did not change in version 39</h4>
 <p>The option set-up, the temperature basis, the cooling treatment, the expected-life model, and every price and target in the company-by-company section are unchanged from version 38.</p></div>
 
@@ -389,7 +396,7 @@
 <div class="entry"><h3>Mariano Scandizzo</h3><p class="small muted">Head of Asset Management, Insigneo; CFA, CQF</p><p><span class="label">What they said:</span> Compute that can be scheduled, shifted in time or moved between sites could dissolve a site-level transformer constraint before it ever binds, so the grid-connection wait may be softer than the paper claims.</p><p><span class="label">What changed:</span> I first recorded his point as already answered by the existing text, which was wrong. A dedicated section on demand-side flexibility and schedulable load was then written, engaging Norris et al. (2025) and Knittel, Senga and Wang (2025), and the paper now states demand-side flexibility as an open research frontier.</p></div>
 <div class="entry"><h3>Alejo Czerwonko</h3><p class="small muted">Chief Investment Officer, Emerging Markets Americas, UBS; adjunct associate professor, Columbia SIPA</p><p><span class="label">What they said:</span> Pressed the framing and the inputs through an emerging-markets and macro lens. A supportive read; no single input was challenged to destruction.</p><p><span class="label">What changed:</span> The framing was tightened where he pressed (version 33). No structural change.</p></div>
 <div class="entry"><h3>Thomas Lyon</h3><p class="small muted">Dow Chair of Sustainable Science, Technology and Commerce, Michigan Ross</p><p><span class="label">What they said:</span> In July 2026 he explained that his audit-threat framework (Lyon and Maxwell, 2011) does not predict any particular route by which such information reaches a market: releasing data to investors may not produce the hoped-for repricing, and a rival might instead need to press the FTC or bring litigation. The paper had assumed one route where several exist.</p><p><span class="label">What changed:</span> Version 39 rewrote the repricing section. It now borrows only the audit-threat framing from his model, not its results; lays out four channels (investor disclosure, EU mandate, FTC enforcement, private litigation) with their decision-makers and timelines; states plainly that the paper cannot tell which channel a rival will choose; and splits the confidence rating into Medium on the mechanism and Low on the timing.</p></div>
-<p class="small muted">Corrections I found on my own after these reviews are in the correction log above and are marked as self-found; none of the readers is responsible for them.</p>
+<p class="small muted">Corrections I found on my own after these reviews are in the correction log above; none of the readers is responsible for them.</p>
 
 <h2 id="formulas">The formulas, where they come from, and how I learned them</h2>
 <p>The paper uses the methods below. None of them is original; the work was learning each one well enough to apply it to transformers and to check the result. Most came from MIT OpenCourseWare courses I worked through on my own: Finance Theory I (Andrew Lo), Analytics of Finance (Leonid Kogan), Thermodynamics and Kinetics, Heat and Mass Transfer, Introduction to Electric Power Systems (James Kirtley), Linear Algebra (Gilbert Strang) and Computational Thinking and Data Science (John Guttag). The finance-modelling conventions I taught myself from public materials: Aswath Damodaran’s open valuation course, the CFI and Wall Street Prep modelling programs, the CFA curriculum and Robert Shiller’s Financial Markets (Yale, via Coursera). The underlying physics I learned mainly from YouTube: Practical Engineering, Real Engineering, 3Blue1Brown and StatQuest among others. All of these are listed in the source list above.</p>
@@ -428,5 +435,9 @@
 <footer class="site-footer">
 <p>Last updated: 13 October 2026. <a href="../">Home</a></p>
 </footer>
+<script>
+// Closes the long source list from its foot; the link itself still jumps to the Source list heading without JavaScript.
+(function () { var a = document.getElementById("hide-sources"), d = document.getElementById("sources-details"); if (a && d) a.addEventListener("click", function () { d.open = false; }); })();
+</script>
 </body>
 </html>

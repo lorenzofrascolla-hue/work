@@ -281,3 +281,7 @@
 @media (prefers-reduced-motion: reduce) { .rbar .rt i { transition: none; } }
 .rx .card h3 { margin: 0 0 0.4rem; font-size: 1rem; }
 .rx .tbtn.ghost:hover, .rx .tbtn:hover { text-decoration: underline; }
+.perfbox { margin-top: 0.6rem; }
+.perfbox .seg { flex-wrap: wrap; display: flex; }
+.perfbox .kpis .v { font-size: 1.5rem; }
+.marks .mk-h { font-weight: 700; color: var(--t-muted); margin-top: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; }

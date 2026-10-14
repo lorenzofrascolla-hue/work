@@ -264,7 +264,7 @@
     function hover(e) { var r = svg.getBoundingClientRect(); var x = (e.clientX - r.left) / r.width * ch.W; var bi = 0, gap = 1e9; for (var i = 0; i < n; i++) { var gg = Math.abs(ch.X(i) - x); if (gg < gap) { gap = gg; bi = i; } } guide.setAttribute("x1", ch.X(bi)); guide.setAttribute("x2", ch.X(bi)); guide.style.display = "block"; tip.innerHTML = "<strong>" + dshort(E.dates[bi]) + "</strong><br>Paper account " + idx[bi].toFixed(1) + " (" + usd(E.value[bi]) + ")<br>S&amp;P 500 " + six[bi].toFixed(1); tip.style.display = "block"; var px = ch.X(bi) / ch.W * r.width; tip.style.left = Math.max(0, Math.min(r.width - tip.offsetWidth, px + 10)) + "px"; tip.style.top = "6px"; state.hovered = true; }
     svg.addEventListener("pointermove", hover); svg.addEventListener("pointerdown", hover); svg.addEventListener("pointerleave", function (e) { if (e.pointerType === "touch") return; tip.style.display = "none"; guide.style.display = "none"; });
     // Long notes are split over two short lines (and the list is capped in width) so no text runs under the tour popover when it sits in the corner.
-    var ml = h("ul", { class: "note marks", style: "list-style:none;padding:0;margin:.4rem 0 0" }); MARK.forEach(function (m) { ml.appendChild(h("li", { text: "• " + m.label })); if (m.more) ml.appendChild(h("li", { class: "cont", text: m.more })); });
+    var ml = h("ul", { class: "note marks", style: "list-style:none;padding:0;margin:.4rem 0 0" }); ml.appendChild(h("li", { class: "mk-h", text: "System changes (the dashed lines on the chart)" })); MARK.forEach(function (m) { ml.appendChild(h("li", { text: "• " + m.label })); if (m.more) ml.appendChild(h("li", { class: "cont", text: m.more })); });
     // The earlier account is in summary.json and equity-history.csv (first_account); it is stated here so the reset is not read as a fresh start after a quiet month.
     ml.appendChild(h("li", { text: "• Before the reset: an earlier $100,000 practice account ran from 2 June to 2 July 2026 and ended down 8.5% while the S&P 500 fell 1.7%." }));
     ml.appendChild(h("li", { class: "cont", text: "It is in equity-history.csv and summary.json and is not on this chart." }));
@@ -272,7 +272,7 @@
       h("div", { class: "lg", html: '<span><i></i>Paper account (as recorded by the system)</span><span><i class="spx"></i>S&amp;P 500 (official closes)</span><span><i class="mark"></i>System change</span>' }),
       cb,
       // Latest first, and both tiles in the neutral colour: the one day the account was ahead is shown, not coloured as the good news. Two decimals so the percentages subtract to the "points" gap.
-      kpis([{ l: "Since the equal-weight switch · " + dshort(E.dates[ew]), v: pct((E.value[n - 1] / E.value[ew] - 1) * 100, 2, true) + " (S&P 500 " + pct((E.spx[n - 1] / E.spx[ew] - 1) * 100, 2, true) + ")", cls: "up", s: "ahead by " + ((E.value[n - 1] / E.value[ew] - E.spx[n - 1] / E.spx[ew]) * 100).toFixed(1) + " points, " + dshort(E.dates[ew]) + " to " + dshort(E.dates[n - 1]) }, { l: "Since the reset · " + dshort(E.dates[0]), v: pct(idx[n - 1] - 100, 2, true) + " (S&P 500 " + pct(six[n - 1] - 100, 2, true) + ")", s: (idx[n - 1] - six[n - 1] >= 0 ? "ahead by " : "behind by ") + Math.abs(idx[n - 1] - six[n - 1]).toFixed(1) + " points" }, { l: "Highest point · " + dshort(E.dates[pi]), v: pct(idx[pi] - 100, 2, true) + " (S&P 500 " + pct(six[pi] - 100, 2, true) + ")", s: (idx[pi] - six[pi] >= 0 ? "ahead by " : "behind by ") + Math.abs(idx[pi] - six[pi]).toFixed(1) + " points on the same day" }, { l: "Account value range", v: usd(Math.min.apply(null, E.value)) + " to " + usd(Math.max.apply(null, E.value)), s: "lowest and highest close" }]),
+      perfBox(E, ew, pi, n),
       ml], { wide: true }));
     // risk analytics (computed from current holdings and one year of closes)
     var risk = riskStats(pos);
@@ -295,6 +295,30 @@
     g.appendChild(h("div", { class: "sec", text: "Live-data panels (not computed in this snapshot)" }));
     var pl = [["attribution", "Attribution (Brinson-Fachler)", "Splits the gap against the index into what came from sector choices and what came from stock picks."], ["factors2", "Factor exposures", "A regression of the book's returns on the standard style factors (market, size, value, profitability, investment, momentum)."], ["garch", "GARCH volatility", "A volatility model that lets recent swings weigh more, to forecast tomorrow's risk."], ["macroshock", "Macro shock", "How the book would react to a jump in rates, oil or the dollar."], ["crowding", "Factor crowding", "Whether the factors the book leans on are crowded with other investors."], ["liq", "Liquidity sizing", "Caps each position by how many days of normal trading it would take to exit."], ["tax", "Tax harvesting", "Finds losing positions whose sale could offset gains (not relevant to a paper account, but the tool exists)."], ["kelly", "Kelly sizing", "A formula for how big a bet should be given its odds and payoff."], ["mc", "Risk sim · Monte Carlo", "Simulates thousands of possible years for the book to show the range of outcomes."], ["factsheet", "Fact sheet and pitch deck", "One-command PDF summarising the paper account and the research list, with a pitch deck made as a practice exercise, generated from the live numbers."]];
     g.appendChild(notHereGroup("liveonly-portfolio", "Live-data panels · not computed here", pl.length + " panels need live feeds and are not computed in this snapshot: show the list", pl));
+  }
+
+  // Performance vs the S&P 500 for a chosen period: account return, index return, and the difference (alpha).
+  function perfBox(E, ew, pi, n) {
+    var P = [
+      { k: "ew", label: "Since equal-weight switch (31 Aug)", a: ew, b: n - 1 },
+      { k: "reset", label: "Since account reset (3 Jul)", a: 0, b: n - 1 },
+      { k: "peak", label: "3 Jul to highest point (" + dshort(E.dates[pi]).replace(/ \d{4}$/, "") + ")", a: 0, b: pi }
+    ];
+    var wrap = h("div", { class: "perfbox" }), seg = h("div", { class: "seg", role: "group", "aria-label": "Period" }), tiles = h("div");
+    function show(p) {
+      seg.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x.getAttribute("data-k") === p.k ? "true" : "false"); });
+      var acc = (E.value[p.b] / E.value[p.a] - 1) * 100, idx = (E.spx[p.b] / E.spx[p.a] - 1) * 100, d = acc - idx;
+      tiles.innerHTML = "";
+      tiles.appendChild(kpis([
+        { l: "Paper account", v: pct(acc, 2, true), cls: cls(acc / 100) },
+        { l: "S&P 500", v: pct(idx, 2, true), cls: cls(idx / 100) },
+        { l: "Difference (alpha)", v: (d >= 0 ? "+" : "\u2212") + Math.abs(d).toFixed(2) + " pts", cls: d >= 0 ? "up" : "down", s: d >= 0 ? "ahead of the index" : "behind the index" }
+      ]));
+      tiles.appendChild(h("p", { class: "note", text: dshort(E.dates[p.a]) + " to " + dshort(E.dates[p.b]) + ". Alpha here is simply the account's return minus the S&P 500's return over the same days." }));
+    }
+    P.forEach(function (p) { var bt = h("button", { type: "button", "data-k": p.k, text: p.label }); bt.addEventListener("click", function () { show(p); }); seg.appendChild(bt); });
+    wrap.appendChild(seg); wrap.appendChild(tiles); show(P[0]);
+    return wrap;
   }
   function riskStats(pos) {
     var W = 60, tk = pos.map(function (p) { return p.t; }), w = pos.map(function (p) { return p.w / 100; }), tw = w.reduce(function (a, b) { return a + b; }, 0); w = w.map(function (x) { return x / tw; });

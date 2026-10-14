@@ -320,6 +320,10 @@
         { l: "Difference (alpha)", v: (d >= 0 ? "+" : "\u2212") + Math.abs(d).toFixed(2) + " pts", cls: d >= 0 ? "up" : "down", s: d >= 0 ? "ahead of the index" : "behind the index" }
       ]));
       tiles.appendChild(h("p", { class: "note", text: dshort(E.dates[p.a]) + " to " + dshort(E.dates[p.b]) + ". Alpha here is simply the account's return minus the S&P 500's return over the same days." }));
+      if (p.k === "ew") {
+        var full = ((E.value[n - 1] / E.value[0]) - (E.spx[n - 1] / E.spx[0])) * 100;
+        if (full < 0) tiles.appendChild(h("p", { class: "note", text: "Over the whole period since the 3 Jul reset, the account is still " + Math.abs(full).toFixed(2) + " pts behind the index; press “Since account reset” to see it." }));
+      }
     }
     P.forEach(function (p) { var bt = h("button", { type: "button", "data-k": p.k, text: p.label }); bt.addEventListener("click", function () { show(p); }); seg.appendChild(bt); });
     wrap.appendChild(seg); wrap.appendChild(tiles); show(P[0]);

@@ -11,8 +11,11 @@
     document.body.appendChild(shade); document.body.appendChild(pop);
   }
   function place(target) {
+    var s = i >= 0 ? steps[i] : null;
+    var bn = document.querySelector(".banner"), bnB = bn ? bn.getBoundingClientRect().bottom : 0;
     var r = target ? target.getBoundingClientRect() : null;
     if (r && !r.width && !r.height) r = null; // the target is on a hidden screen (a task switched tabs): no spotlight
+    if (r && r.bottom < bnB + 40) r = null; // all but a sliver of the target has scrolled up under the sticky banner (a look-up scrolled the page): no spotlight, so the dimmer does not grey out what the reader just opened
     if (r) {
       var pad = 6;
       hl.style.top = (r.top - pad) + "px"; hl.style.left = (r.left - pad) + "px";
@@ -27,11 +30,28 @@
     else if (r.left - 16 - w >= 12) { left = r.left - 16 - w; top = r.top; }
     else if (r.bottom + 14 + h <= vh - 12) { left = Math.min(Math.max(12, r.left), vw - w - 12); top = r.bottom + 14; }
     else if (r.top - 14 - h >= 12) { left = Math.min(Math.max(12, r.left), vw - w - 12); top = r.top - 14 - h; }
-    else { left = Math.max(12, Math.min(r.right, vw) - w - 12); top = Math.max(12, vh - h - 12); }
+    else {
+      // Last resort: a corner of a target that fills the screen. Bottom-right by default; a step can ask for bottom-left (corner: "left") when the right end of its target is the part to keep clear.
+      left = s && s.corner === "left" ? Math.max(12, Math.min(r.left, vw - w - 12)) : Math.max(12, Math.min(r.right, vw) - w - 12);
+      top = Math.max(12, vh - h - 12);
+    }
+    // A step can name an element the popover must not cover (clear: selector); when they would overlap, the popover moves below it.
+    var c = s && s.clear ? el(s.clear) : null;
+    if (c) { var cr = c.getBoundingClientRect(); if (cr.height && top < cr.bottom + 14 && top + h > cr.top) top = cr.bottom + 14; }
     // Clamped on both edges, below the sticky demo banner: a tall spotlighted card scrolled past the top must not carry the buttons off screen with it.
-    var bn = document.querySelector(".banner"), minTop = bn ? Math.max(12, bn.getBoundingClientRect().bottom + 8) : 12;
+    var minTop = bn ? Math.max(12, bnB + 8) : 12;
     top = Math.max(minTop, Math.min(top, vh - h - 12));
     pop.style.left = left + "px"; pop.style.top = top + "px";
+  }
+  // On a phone the popover is pinned at the bottom. A step can name the element its task is about (keep: selector); when that element
+  // would sit under the popover and it fits between the banner and the popover, the page scrolls down just enough to show all of it.
+  function keepClear(s) {
+    if (window.innerWidth > 640 || !s.keep) return;
+    var k = el(s.keep); if (!k) return;
+    var kr = k.getBoundingClientRect(), pt = pop.getBoundingClientRect().top;
+    var bn = document.querySelector(".banner"), bnB = bn ? bn.getBoundingClientRect().bottom : 0;
+    var over = kr.bottom - (pt - 8);
+    if (over > 0 && kr.top - over >= bnB + 8) window.scrollBy(0, over);
   }
   function render() {
     var s = steps[i];
@@ -64,7 +84,7 @@
       };
       if (s.done()) check(); else poll = setInterval(check, 400);
     }
-    setTimeout(function () { place(target); h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); }, 60);
+    setTimeout(function () { keepClear(s); place(target); h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); }, 60);
     setTimeout(function () { place(target); }, 450);
   }
   function go(n) { i = Math.max(0, Math.min(steps.length - 1, n)); render(); }
@@ -84,6 +104,7 @@
   // On phones place() only moves the spotlight (the popover is pinned by CSS), so it runs on scroll at every width.
   window.addEventListener("scroll", function () { if (i >= 0) place(steps[i].target ? el(steps[i].target) : null); }, { passive: true });
   // Arrow keys step the tour only when focus is in the popover or on the page body, so the screen tabs keep their own arrow keys.
-  document.addEventListener("keydown", function (e) { if (i < 0) return; if (e.key === "Escape") stop(); var a = document.activeElement, inPop = !a || a === document.body || !!a.closest(".tour-pop"); if (e.key === "ArrowRight" && inPop) go(i + 1); if (e.key === "ArrowLeft" && inPop) go(i - 1); });
+  // Escape closes the glossary when it is open (the page's own handler); it ends the tour only when no drawer is open, so one key press does not do both.
+  document.addEventListener("keydown", function (e) { if (i < 0) return; if (e.key === "Escape" && !document.querySelector(".drawer.on")) stop(); var a = document.activeElement, inPop = !a || a === document.body || !!a.closest(".tour-pop"); if (e.key === "ArrowRight" && inPop) go(i + 1); if (e.key === "ArrowLeft" && inPop) go(i - 1); });
   window.Tour = { start: start, stop: stop, active: function () { return i >= 0; } };
 })();

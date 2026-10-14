@@ -8,7 +8,7 @@
 <meta name="description" content="Supporting files for The Silicon-Power Gap: the source list and the correction log from version 37 to version 39.">
 <link rel="icon" href="data:,">
 <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/style.css?v=8">
+<link rel="stylesheet" href="../assets/style.css?v=9">
 
 </head>
 <body>
@@ -17,14 +17,14 @@
 <main id="main">
 <h1>The Silicon-Power Gap: supporting files</h1>
 <p class="lede">The paper argues that electrical transformer supply and grid connections, not AI chips, limit how fast AI data centers can be built.</p>
-<p>These are the supporting files for version 39 of the paper (6 August 2026). The paper itself is not posted on this site; this page holds the material behind it: the sources, the corrections, what senior readers said, and the formulas. It is independent student research.</p>
+<p>These are the supporting files for version 39 of the paper (6 August 2026). The paper itself is deliberately not posted on this site; this page holds the material behind it: the sources, the corrections, what senior readers said, how AI was used, and the formulas. It is independent student research.</p>
 
-<p>On this page: <a href="#sources">source list</a>, <a href="#corrections">correction log</a>, <a href="#readers">what the senior readers said</a>, <a href="#formulas">the formulas and where I learned them</a>, <a href="#writing">related writing</a>, <a href="#model">Excel model</a>, <a href="#ai">how AI was used</a>.</p>
+<p>On this page: <a href="#sources">source list</a>, <a href="#corrections">correction log</a>, <a href="#readers">what the senior readers said</a>, <a href="#ai">how AI was used</a>, <a href="#formulas">the formulas and where I learned them</a>, <a href="#writing">related writing</a>, <a href="#model">Excel model</a>.</p>
 
 <h2 id="sources">Source list</h2>
-<p>243 sources in 15 groups, from the paper’s bibliography (its eighth revision, August 2026), updated to match version 39 of the paper on 6 August 2026. The list is posted as exported; a few sources appear in more than one group. Links are included where a source has one.</p>
+<p>243 entries in 15 groups, from revision 8 of the paper’s bibliography, updated to match version 39 of the paper on 6 August 2026. The list is posted as exported: it includes the courses and video channels I learned from, a few sources appear in more than one group, and one entry still carries the Yandex attribution that the correction log below fixes. Links are included where a source has one.</p>
 <details id="sources-details">
-<summary>Show all 243 sources</summary>
+<summary>Show all 243 entries</summary>
 <h3>Books, Monographs &amp; Major Reports</h3>
 <ul class="sources">
 <li>Atkins, Peter, and Julio de Paula. 2018. Physical Chemistry. 11th ed. Oxford: Oxford University Press. ISBN 978-0198769866.</li>
@@ -395,8 +395,13 @@
 <div class="entry"><h3>Thomas Lyon</h3><p class="small muted">Dow Chair of Sustainable Science, Technology and Commerce, Michigan Ross</p><p><span class="label">What they said:</span> In July 2026 he explained that his audit-threat framework (Lyon and Maxwell, 2011) does not predict any particular route by which such information reaches a market: releasing data to investors may not produce the hoped-for repricing, and a rival might instead need to press the FTC or bring litigation. The paper had assumed one route where several exist.</p><p><span class="label">What changed:</span> Version 39 rewrote the repricing section. It now borrows only the audit-threat framing from his model, not its results; lays out four channels (investor disclosure, EU mandate, FTC enforcement, private litigation) with their decision-makers and timelines; states plainly that the paper cannot tell which channel a rival will choose; and splits the confidence rating into Medium on the mechanism and Low on the timing.</p></div>
 <p class="small muted">Corrections I found on my own after these reviews are in the correction log above; none of the readers is responsible for them.</p>
 
+<h2 id="ai">How AI was used</h2>
+<p>I chose the question and led this research. I used AI tools extensively throughout, as the paper itself discloses, including for drafting and for proposing model structures. For the files on this page, AI tools gathered first-pass candidates for the source list, and helped audit the paper and draft the corrections in the log after senior readers critiqued it. Responsibility for every claim is mine.</p>
+
 <h2 id="formulas">The formulas, where they come from, and how I learned them</h2>
 <p>The paper uses the methods below. None of them is original; the work was learning each one well enough to apply it to transformers and to check the result. Most came from MIT OpenCourseWare courses I worked through on my own: Finance Theory I (Andrew Lo), Analytics of Finance (Leonid Kogan), Thermodynamics and Kinetics, Heat and Mass Transfer, Introduction to Electric Power Systems (James Kirtley), Linear Algebra (Gilbert Strang) and Computational Thinking and Data Science (John Guttag). The finance-modelling conventions I taught myself from public materials: Aswath Damodaran’s open valuation course, the CFI and Wall Street Prep modelling programs, the CFA curriculum and Robert Shiller’s Financial Markets (Yale, via Coursera). The underlying physics I learned mainly from YouTube: Practical Engineering, Real Engineering, 3Blue1Brown and StatQuest among others. All of these are listed in the source list above.</p>
+<details id="formulas-details">
+<summary>Show the 22 formulas and where I learned them</summary>
 <div class="entry"><h3>Black-Scholes-Merton call option</h3><p>Values the right, but not the obligation, to build on a secured transformer slot ahead of everyone else.</p><p><span class="label">Formula:</span> <span class="mono">C = S·N(d₁) − K·e^(−rT)·N(d₂)</span></p><p><span class="label">Used for:</span> Section I.A, the per-slot option value. <span class="label">Source cited:</span> Black and Scholes (1973); Merton (1973); Hull (2021).</p><p><span class="label">Where I learned it:</span> MIT OpenCourseWare: 15.401 Finance Theory I (Lo) and 15.450 Analytics of Finance (Kogan).</p></div>
 <div class="entry"><h3>Intrinsic value and time value</h3><p>Splits an option’s value into what it is worth if exercised today and what the remaining wait is worth.</p><p><span class="label">Formula:</span> <span class="mono">time value = C − max(S − K, 0)</span></p><p><span class="label">Used for:</span> Section I.A. <span class="label">Source cited:</span> Hull (2021).</p><p><span class="label">Where I learned it:</span> MIT OpenCourseWare: 15.401 Finance Theory I.</p></div>
 <div class="entry"><h3>Present value and discounting</h3><p>Turns money arriving in the future into what it is worth today.</p><p><span class="label">Formula:</span> <span class="mono">PV = CF / (1 + r)^t; S = Σ CF_t·e^(−rt)</span></p><p><span class="label">Used for:</span> Section I.A, building the underlying S and the strike K. <span class="label">Source cited:</span> Brealey, Myers and Allen (2019).</p><p><span class="label">Where I learned it:</span> MIT OpenCourseWare: 15.401 Finance Theory I.</p></div>
@@ -419,6 +424,7 @@
 <div class="entry"><h3>Replacement reserve and insurance rate</h3><p>A yearly set-aside for replacing a transformer at the end of its expected life, and a premium as a share of insured value.</p><p><span class="label">Formula:</span> <span class="mono">reserve = cost / expected life; premium = rate × value</span></p><p><span class="label">Used for:</span> Sections I.B and I.D. <span class="label">Source cited:</span> IEEE Std C57.12.00; UNEP underwriting module; S&amp;P Global (2026).</p><p><span class="label">Where I learned it:</span> Self-taught: CFI and Wall Street Prep; underwriting guides.</p></div>
 <div class="entry"><h3>Relative valuation multiples</h3><p>Compares a company’s price to its earnings, cash flow or funds from operations against peers.</p><p><span class="label">Formula:</span> <span class="mono">P/E, EV/EBITDA, P/FFO</span></p><p><span class="label">Used for:</span> Section II, the company-by-company read. <span class="label">Source cited:</span> Damodaran (2012); CFA Institute (2024).</p><p><span class="label">Where I learned it:</span> Self-taught: the CFA Level I and II equity curriculum; Damodaran’s open course.</p></div>
 <div class="entry"><h3>Audit-threat disclosure framing</h3><p>Why a rival with the means to verify a claim can force the market to reprice it.</p><p><span class="label">Formula:</span> <span class="mono">Lyon and Maxwell (2011), framing only</span></p><p><span class="label">Used for:</span> Section I.D.6, the repricing trigger. <span class="label">Source cited:</span> Lyon and Maxwell (2011, 2004).</p><p><span class="label">Where I learned it:</span> Self-taught from the articles; corrected after Professor Lyon’s feedback.</p></div>
+</details>
 
 <h2 id="writing">Related writing</h2>
 <p>Three issues of Simancas Capital, my independent research publication on AI and energy, grew out of the same research. I wrote each of them myself. They are free to read on Substack and are not copied here.</p>
@@ -426,9 +432,6 @@
 
 <h2 id="model">Excel model</h2>
 <p>The Excel model is not posted yet.</p>
-
-<h2 id="ai">How AI was used</h2>
-<p>I chose the question and led this research. I used AI tools extensively throughout, as the paper itself discloses, including for drafting and for proposing model structures. For the files on this page, AI tools gathered first-pass candidates for the source list, and helped audit the paper and draft the corrections in the log after senior readers critiqued it. Responsibility for every claim is mine.</p>
 
 </main>
 <footer class="site-footer">

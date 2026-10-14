@@ -168,3 +168,7 @@
 .term .gates li::before { content: none; }
 .term .gates li { padding-left: 0.5rem; position: static; }
 .term .gates li.g { padding-left: 0; }
+@media (max-width: 40rem) {
+  .gates li { grid-template-columns: 3.4rem 1fr; }
+  .gates li .d { grid-column: 2; white-space: normal; }
+}

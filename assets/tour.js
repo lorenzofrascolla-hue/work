@@ -24,7 +24,7 @@
     else if (r.left - 16 - w >= 12) { left = r.left - 16 - w; top = r.top; }
     else if (r.bottom + 14 + h <= vh - 12) { left = Math.min(Math.max(12, r.left), vw - w - 12); top = r.bottom + 14; }
     else if (r.top - 14 - h >= 12) { left = Math.min(Math.max(12, r.left), vw - w - 12); top = r.top - 14 - h; }
-    else { left = Math.min(Math.max(12, r.left), vw - w - 12); top = Math.max(12, vh - h - 12); }
+    else { left = Math.max(12, Math.min(r.right, vw) - w - 12); top = Math.max(12, vh - h - 12); }
     if (top + h > vh - 12) top = Math.max(12, vh - h - 12);
     pop.style.left = left + "px"; pop.style.top = top + "px";
   }

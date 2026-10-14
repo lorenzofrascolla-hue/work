@@ -285,3 +285,8 @@
 .perfbox .seg { flex-wrap: wrap; display: flex; }
 .perfbox .kpis .v { font-size: 1.5rem; }
 .marks .mk-h { font-weight: 700; color: var(--t-muted); margin-top: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; }
+.marks li.mk { display: flex; gap: 0.5rem; align-items: baseline; color: #eef2f8; font-size: 0.85rem; margin-top: 0.35rem; }
+.marks .mk-n { flex: none; width: 1.3rem; height: 1.3rem; border-radius: 50%; background: #ffb84d; color: #06080f; font-weight: 700; font-size: 0.75rem; display: inline-grid; place-items: center; }
+.lg i.mark { border-left-color: #ffb84d; }
+.marks .mk-n { background: #c9a7ff; }
+.lg i.mark { border-left-color: #c9a7ff; }

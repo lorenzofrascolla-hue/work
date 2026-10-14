@@ -9,6 +9,7 @@
 <link rel="icon" href="data:,">
 <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/style.css?v=7">
+<link rel="stylesheet" href="../assets/terminal.css?v=15">
 
 </head>
 <body>
@@ -20,6 +21,60 @@
 <p>These are the supporting files for version 39 of the paper (6 August 2026). The paper itself is not posted here; this page holds the material behind it: the sources, the corrections, what senior readers said, how AI was used, and the formulas. It is independent student research.</p>
 
 <p>On this page: <a href="#sources">source list</a>, <a href="#corrections">correction log</a>, <a href="#readers">what the senior readers said</a>, <a href="#formulas">formulas and where I learned them</a>, <a href="#writing">related writing</a>, <a href="#model">Excel models</a>, <a href="#ai">how AI was used</a>.</p>
+
+<section class="term rx" aria-label="The paper at a glance">
+<div class="termbar"><div class="logo" aria-hidden="true">SPG</div><div><div class="name">The Silicon-Power Gap</div><div class="sub">Version 39 &middot; 6 August 2026 &middot; 52 pages</div></div>
+<div class="right"><a class="tbtn" href="files/SPG-Valuation-Model-v39.xlsx" download>Valuation model (Excel)</a><a class="tbtn ghost" href="files/SPG-Appendix-B-Data-and-Reproducibility-v39.xlsx" download>Appendix B (Excel)</a></div></div>
+<div class="rx-in">
+<div class="kpis big">
+<div class="kpi"><div class="l">Option value per 75 MW slot</div><div class="v">$19.7M</div><div class="s">a secured transformer slot, valued as a call option</div></div>
+<div class="kpi"><div class="l">Combined hidden value</div><div class="v">~$380M</div><div class="s">two hypothetical operators: $276M + $104M</div></div>
+<div class="kpi"><div class="l">Miami vs Helsinki aging</div><div class="v">6.0x</div><div class="s">transformer insulation wears out faster in heat</div></div>
+<div class="kpi"><div class="l">Transformer lead time</div><div class="v">128&ndash;144 wks</div><div class="s">average in early 2026, up from about 50 in 2021</div></div>
+</div>
+
+<h3 class="rx-h">The argument in five steps</h3>
+<div class="arg-tabs" role="tablist" aria-label="The argument">
+<button type="button" role="tab" aria-selected="true">1. Not the chips</button><button type="button" role="tab" aria-selected="false" tabindex="-1">2. The transformer</button><button type="button" role="tab" aria-selected="false" tabindex="-1">3. A slot is an option</button><button type="button" role="tab" aria-selected="false" tabindex="-1">4. Heat costs money</button><button type="button" role="tab" aria-selected="false" tabindex="-1">5. Where the value sits</button>
+</div>
+<div class="arg-panel" role="tabpanel"><p>Everyone watches the supply of AI chips. But a chip in a data center does nothing until the building is connected to the grid, and that connection runs through high-voltage equipment that takes years to get.</p></div>
+<div class="arg-panel" role="tabpanel" hidden><p>Large power transformers and switchgear in the 100 MVA class are made by a few manufacturers from a scarce grade of electrical steel. Average lead times rose from about 50 weeks in 2021 to 128&ndash;144 weeks in early 2026, and grid-connection queues run more than five years.</p></div>
+<div class="arg-panel" role="tabpanel" hidden><p>An operator that has already secured transformer slots holds the right, not the obligation, to build sooner than rivals. The paper values that right with the Black-Scholes-Merton formula: about $19.7M per 75 MW slot. Try the calculator below.</p></div>
+<div class="arg-panel" role="tabpanel" hidden><p>Transformer insulation ages faster in heat. Integrating the IEEE aging law over monthly climate normals, a Miami unit ages 2.7x faster than one in Northern Virginia and 6.0x faster than one in Helsinki, a cost that location choices quietly carry.</p></div>
+<div class="arg-panel" role="tabpanel" hidden><p>Put together for two hypothetical operators, one with Sun Belt slots and one with Nordic sites, the paper finds about $380M of value it does not see identified in public research: a claim about a small slice of value, not a call that a stock is mispriced.</p></div>
+
+<div class="rx-grid">
+<div class="card">
+<h3><span>Try it: the slot option</span></h3>
+<p class="muted">The volatility input was the most contested number in review. Move it and see how much the answer depends on it.</p>
+<label class="rx-l" for="opt-sigma">Volatility <span id="opt-sigma-v" class="mono">35%</span></label>
+<input id="opt-sigma" type="range" min="15" max="60" step="1" value="35">
+<label class="rx-l" for="opt-t">Time to exercise <span id="opt-t-v" class="mono">1 year</span></label>
+<input id="opt-t" type="range" min="0.5" max="3" step="0.5" value="1">
+<div class="kpis"><div class="kpi"><div class="l">Value per slot</div><div class="v" id="opt-c">$19.7M</div></div><div class="kpi"><div class="l">16 slots</div><div class="v" id="opt-book">$315M</div></div><div class="kpi"><div class="l">Time value</div><div class="v" id="opt-time">$0.9M</div></div></div>
+<div class="bar"><i id="opt-bar-i"></i></div><p class="note" id="opt-share"></p>
+<p class="note" id="opt-note">This is the paper's own setting: $19.7M per slot, $315M for 16 slots.</p>
+<p class="note">Inputs from the valuation model: S = $55.1M, K = $37.9M, r = 4.4%.</p>
+</div>
+<div class="card">
+<h3><span>Try it: where heat bites</span></h3>
+<div class="seg"><button type="button" data-aging="index" aria-pressed="true">Aging rate</button><button type="button" data-aging="life" aria-pressed="false">Thermal life</button></div>
+<div id="aging-bars" class="rbars"></div>
+<p class="note" id="aging-cap">Insulation aging rate relative to Northern Virginia, integrated over monthly climate normals. Miami ages 2.7x faster than Northern Virginia and 6.0x faster than Helsinki.</p>
+</div>
+</div>
+
+<h3 class="rx-h">How it got here</h3>
+<ol class="tl">
+<li><span class="d">June 2026</span><span class="e">Four senior practitioners send written critiques. Versions 33 and 34 respond.</span></li>
+<li><span class="d">22 Jun</span><span class="e">Version 37. Combined value $476M, $21.8M per slot.</span></li>
+<li><span class="d">July</span><span class="e">A Michigan Ross professor explains why the repricing argument assumed one route where several exist.</span></li>
+<li><span class="d">3 Aug</span><span class="e">Version 38 rebuilds the option and the thermal model after an audit. $380M, $19.7M per slot. Five of six headline numbers fall.</span></li>
+<li><span class="d">6 Aug</span><span class="e">Version 39 fixes the insurance rate and rewrites the repricing section. $380M holds.</span></li>
+</ol>
+<p class="note">Every change is itemised in the correction log below.</p>
+</div>
+</section>
 
 <h2 id="sources">Source list</h2>
 <p>243 entries in 15 groups, from revision 8 of the paper’s bibliography, updated to match version 39 of the paper on 6 August 2026. The list is posted as exported: it includes the courses and video channels I learned from, a few sources appear in more than one group, and one entry still carries the Yandex attribution that the correction log below fixes. Links are included where a source has one.</p>
@@ -443,5 +498,6 @@
 // Closes the long source list from its foot; the link itself still jumps to the Source list heading without JavaScript.
 (function () { var a = document.getElementById("hide-sources"), d = document.getElementById("sources-details"); if (a && d) a.addEventListener("click", function () { d.open = false; }); })();
 </script>
+<script src="../assets/research.js?v=1" defer></script>
 </body>
 </html>

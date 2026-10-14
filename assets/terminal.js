@@ -17,7 +17,8 @@
   var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   function dshort(iso) { var p = iso.split("-"); return parseInt(p[2], 10) + " " + MON[parseInt(p[1], 10) - 1] + " " + p[0]; }
   function usd(x, d) { x = Number(x); var s = Math.abs(x).toLocaleString("en-US", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); return (x < 0 ? "−$" : "$") + s; }
-  function pct(x, d, sign) { if (x == null || isNaN(x)) return "n/a"; var v = Number(x); var s = Math.abs(v).toFixed(d == null ? 1 : d) + "%"; return (v < 0 ? "−" : (sign && v > 0 ? "+" : "")) + s; }
+  // A value that rounds to zero carries no sign, so a tiny loss never prints as "−0.0%".
+  function pct(x, d, sign) { if (x == null || isNaN(x)) return "n/a"; var v = Number(x); var s = Math.abs(v).toFixed(d == null ? 1 : d); var zero = Number(s) === 0; return (v < 0 && !zero ? "−" : (sign && v > 0 && !zero ? "+" : "")) + s + "%"; }
   function cls(x) { return x > 0.0005 ? "up" : x < -0.0005 ? "down" : "flat"; }
   function num(x, d) { return x == null || isNaN(x) ? "n/a" : Number(x).toLocaleString("en-US", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); }
   function mcap(m) { if (m == null) return "n/a"; if (m >= 1e6) return "$" + (m / 1e6).toFixed(1) + "T"; if (m >= 1000) return "$" + (m >= 10000 ? Math.round(m / 1000).toLocaleString("en-US") : (m / 1000).toFixed(1)) + "B"; return "$" + m.toFixed(0) + "M"; }
@@ -96,6 +97,8 @@
     return card(id, title, "Every panel listed here exists on the real dashboard, where it runs on live market, news, macro or filing feeds. None of them is computed in this snapshot, so the list says what the dashboard has; it is not evidence of how well each panel works.", LIVEONLY, h("details", null, [h("summary", { text: summary }), ul]), { wide: true });
   }
   function scanDateNote() { return R.scan.date === R.snapshot ? "" : " The saved file dates this scan " + dshort(R.scan.date) + "; prices and the account are as of " + dshort(R.snapshot) + "."; }
+  // The same three tiles on the Floor and the Trade Desk. The scan is dated the morning after the snapshot, and the tile says so itself.
+  function scanKpis(colour) { return kpis([{ l: "Scanned", v: String(R.scan.scanned), s: dshort(R.scan.date) + (R.scan.date === R.snapshot ? "" : " (the morning after the snapshot)") + " · research list plus large companies" }, { l: "Cleared all 13", v: String(R.scan.clearsAll), cls: colour && R.scan.clearsAll ? "up" : "" }, { l: "Near misses", v: String(R.scan.nearMisses), s: "by the system's own count; its rule for what counts as a near miss is not in the saved files" }]); }
   function kpis(list) { var k = h("div", { class: "kpis" }); list.forEach(function (x) { var d = h("div", { class: "kpi" }); d.appendChild(h("div", { class: "l", text: x.l })); d.appendChild(h("div", { class: "v " + (x.cls || ""), text: x.v })); if (x.s) d.appendChild(h("div", { class: "s", text: x.s })); k.appendChild(d); }); return k; }
   function table(head, rows, opts) {
     var t = h("table"), tr = h("tr"); head.forEach(function (c) { tr.appendChild(h("th", { scope: "col", class: c.num ? "num" : "", text: c.t })); }); t.appendChild(h("thead", null, [tr]));
@@ -128,8 +131,7 @@
     g.appendChild(card("spx", "S&P 500 · index fund (SPY)", "The benchmark the paper account is judged against. SPY is a fund that tracks the S&P 500, an index of 500 large US companies.", SNAP, [
       kpis([{ l: "Last close", v: usd(last, 2), s: dshort(sp.dates[n - 1]) }, { l: "1 month", v: pct((last / sp.close[n - 22] - 1) * 100, 1, true), cls: cls(last / sp.close[n - 22] - 1) }, { l: "3 months", v: pct((last / sp.close[n - 64] - 1) * 100, 1, true), cls: cls(last / sp.close[n - 64] - 1) }, { l: "Since " + dshort(sp.dates[0]), v: pct((last / sp.close[0] - 1) * 100, 1, true), cls: cls(last / sp.close[0] - 1) }]),
       h("div", { html: spark("SPY", 260, 44) })]));
-    g.appendChild(card("scan", "Daily scan", "Every morning the system runs the 13-gate entry test across the research list plus a set of large companies and reports which names clear every gate." + scanDateNote(), SNAP,
-      kpis([{ l: "Scanned", v: String(R.scan.scanned), s: dshort(R.scan.date) + " · research list plus large companies" }, { l: "Cleared all 13", v: String(R.scan.clearsAll), cls: R.scan.clearsAll ? "up" : "" }, { l: "Near misses", v: String(R.scan.nearMisses), s: "as the system counts them; not defined in the saved files" }])));
+    g.appendChild(card("scan", "Daily scan", "Every morning the system runs the 13-gate entry test across the research list plus a set of large companies and reports which names clear every gate." + scanDateNote(), SNAP, scanKpis(true)));
     g.appendChild(h("div", { class: "sec", text: "Thesis" }));
     var bySec = {}; cs.forEach(function (c) { (bySec[c.sector] = bySec[c.sector] || []).push(c); });
     var tl = h("div"); Object.keys(bySec).forEach(function (s) { var p = h("p"); p.appendChild(h("strong", { text: s + " (" + bySec[s].length + "): " })); bySec[s].forEach(function (c, i) { var b = h("button", { type: "button", class: "tk", "data-open": c.ticker, text: c.ticker }); p.appendChild(b); p.appendChild(document.createTextNode(" " + c.theme + (i < bySec[s].length - 1 ? " · " : ""))); }); tl.appendChild(p); });
@@ -148,7 +150,7 @@
     var sug = h("ul", { class: "sugg", "aria-label": "Companies in this snapshot" });
     R.companies.forEach(function (c) { sug.appendChild(h("li", null, [h("button", { type: "button", "data-open": c.ticker, text: c.ticker })])); });
     box.appendChild(sug);
-    box.appendChild(h("p", { id: "tick-help", class: "note", text: "This snapshot carries the 25 companies on the research list. On the live dashboard any US-listed ticker works: the system pulls the company's SEC filings and prices on the spot." }));
+    box.appendChild(h("p", { id: "tick-help", class: "note", text: "This snapshot carries the 25 companies on the research list." }));
     g.appendChild(box);
     var holder = h("div", { id: "research-holder", class: "grid" }); g.appendChild(holder);
     function go() { openCompany(inp.value); }
@@ -354,7 +356,7 @@
     g.appendChild(h("div", { class: "sec", text: "Orders" }));
     var form = h("div", null, [h("div", { style: "display:flex;gap:.5rem;flex-wrap:wrap;margin:.3rem 0 .6rem" }, [h("input", { type: "text", disabled: "", placeholder: "Ticker", "aria-label": "Ticker (disabled in the demo)", style: "flex:1 1 7rem;background:#0b111a;color:#7f8ca3;border:1px solid #52698a;border-radius:8px;padding:.5rem .7rem;font:inherit;min-height:2.5rem" }), h("input", { type: "text", disabled: "", placeholder: "$ amount", "aria-label": "Amount (disabled in the demo)", style: "flex:1 1 7rem;background:#0b111a;color:#7f8ca3;border:1px solid #52698a;border-radius:8px;padding:.5rem .7rem;font:inherit;min-height:2.5rem" }), h("button", { class: "tbtn", type: "button", disabled: "", text: "Buy (paper)" }), h("button", { class: "tbtn ghost", type: "button", disabled: "", text: "Sell (paper)" })]), h("p", { class: "empty", text: "Order entry is switched off in this demo. On the live dashboard a buy here sends a simulated order to the practice account and logs it; it never touches real money." })]);
     g.appendChild(card("ticket", "Order ticket", "Where a simulated order is entered by hand. The amount defaults to 10% of the account value; a position can grow past 10% afterwards as prices move.", OFF, form, { two: true }));
-    g.appendChild(card("scan2", "Daily scan", "The 10:00 morning sweep: the 13-gate test over the research list plus a set of large companies, reporting what cleared every gate." + scanDateNote(), SNAP, kpis([{ l: "Scanned", v: String(R.scan.scanned), s: dshort(R.scan.date) + " · research list plus large companies" }, { l: "Cleared all 13", v: String(R.scan.clearsAll) }, { l: "Near misses", v: String(R.scan.nearMisses), s: "as the system counts them; not defined in the saved files" }])));
+    g.appendChild(card("scan2", "Daily scan", "The 10:00 morning sweep: the 13-gate test over the research list plus a set of large companies, reporting what cleared every gate." + scanDateNote(), SNAP, scanKpis(false)));
     g.appendChild(h("div", { class: "sec", text: "The automated run" }));
     var lr = D.lastRun;
     var brows = D.blockedLatest.map(function (b) { return [{ t: dshort(b.date) }, { t: b.company + " (" + b.ticker + ")" }, { t: usd(b.usd) }, { t: usd(b.room) }]; });

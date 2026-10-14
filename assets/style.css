@@ -203,3 +203,5 @@ dl.glossary dd { margin: 0.15rem 0 0; }
 .formulas td.mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85rem; }
 .formulas th .sub { display: block; font-weight: 400; font-size: 0.9rem; color: var(--muted); }
 .mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.95rem; }
+.math { display: block; overflow-x: auto; margin: 0.3rem 0 0.6rem; font-size: 1.1rem; }
+.math math { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", math; }

@@ -231,3 +231,17 @@
 .tour-min .tour-pop .tour-bar { cursor: default; }
 .tour-min .tour-pop .grip { display: none; }
 @media (max-width: 40rem) { .tour-pop .tour-bar .grip { display: none; } .tour-pop .tour-bar { cursor: default; } }
+
+/* Tour docking: on wide screens the dashboard narrows and the guide sits in its own column on the right */
+@media (min-width: 64rem) {
+  .tour-on:not(.tour-min) .term { width: calc(100vw - 27rem); margin-left: calc(50% - 50vw + 1.25rem); }
+  .tour-pop.docked { left: auto; right: 1.25rem; top: 4.5rem; width: 23rem; max-height: calc(100vh - 6rem); overflow-y: auto; }
+}
+@media (max-width: 40rem) {
+  .tour-pop { max-height: 40vh; }
+  .tour-on:not(.tour-min) main { padding-bottom: 45vh; }
+}
+.tour-pop .more-btn { font: inherit; font-size: 0.9rem; background: none; border: 0; color: #0b4a8f; text-decoration: underline; padding: 0; margin: 0 0 0.5rem; cursor: pointer; min-height: 2rem; }
+.tour-pop .tbody[hidden] { display: none; }
+.tour-min .tour-pop .more-btn { display: none; }
+@media (max-width: 40rem) { .tour-pop h2 { font-size: 1.05rem; margin-bottom: 0.3rem; } .tour-pop .task { margin-bottom: 0.5rem; padding: 0.35rem 0.55rem; font-size: 0.92rem; } .tour-on:not(.tour-min) main { padding-bottom: 35vh; } }

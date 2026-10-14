@@ -22,7 +22,10 @@
       hl.style.width = (r.width + pad * 2) + "px"; hl.style.height = (r.height + pad * 2) + "px"; hl.style.display = "block";
     } else { hl.style.display = "none"; }
     var w = pop.offsetWidth, h = pop.offsetHeight, vw = window.innerWidth, vh = window.innerHeight;
+    pop.classList.remove("docked");
     if (mini) { pop.style.left = ""; pop.style.top = ""; return; }
+    // Wide screens: the guide docks in a column to the right of the dashboard (the dashboard narrows to make room), so it never sits on top of the data.
+    if (vw >= 1024 && !moved) { pop.classList.add("docked"); pop.style.left = ""; pop.style.top = ""; return; }
     if (vw <= 640) { pop.style.left = ""; pop.style.top = ""; return; }
     // The reader dragged the box somewhere: keep it there for every later step (kept inside the window).
     if (moved) { pop.style.left = Math.max(8, Math.min(vw - w - 8, moved.left)) + "px"; pop.style.top = Math.max(8, Math.min(vh - h - 8, moved.top)) + "px"; return; }
@@ -62,7 +65,7 @@
     // before() runs first: it may create the step's target (step 4 reopens the company after a not-found look-up).
     if (s.before) s.before();
     var target = s.target ? el(s.target) : null;
-    if (target) { target.classList.add("tour-target"); var tr = target.getBoundingClientRect(); var wide = tr.width > window.innerWidth * 0.55 || tr.height > window.innerHeight * 0.45; target.scrollIntoView({ block: wide ? "start" : "center", behavior: "auto" }); }
+    if (target) { target.classList.add("tour-target"); var tr = target.getBoundingClientRect(); var wide = window.innerWidth <= 640 || tr.width > window.innerWidth * 0.55 || tr.height > window.innerHeight * 0.45; target.scrollIntoView({ block: wide ? "start" : "center", behavior: "auto" }); }
     pop.innerHTML = "";
     var bar = document.createElement("div"); bar.className = "tour-bar";
     var stepP = document.createElement("p"); stepP.className = "step"; stepP.textContent = "Step " + (i + 1) + " of " + steps.length;
@@ -78,7 +81,16 @@
       window.addEventListener("pointermove", mv); window.addEventListener("pointerup", up); e.preventDefault();
     });
     var h = document.createElement("h2"); h.id = "tour-h"; h.textContent = s.title; pop.appendChild(h);
-    s.body.forEach(function (t) { var p = document.createElement("p"); p.textContent = t; pop.appendChild(p); });
+    // On a phone the explanation folds behind "Read more" so the box stays short and the data above it stays visible.
+    var body = document.createElement("div"); body.className = "tbody";
+    s.body.forEach(function (t) { var p = document.createElement("p"); p.textContent = t; body.appendChild(p); });
+    pop.appendChild(body);
+    if (window.innerWidth <= 640) {
+      var more = document.createElement("button"); more.type = "button"; more.className = "more-btn"; more.textContent = "Read more"; more.setAttribute("aria-expanded", "false");
+      body.hidden = true;
+      more.addEventListener("click", function () { body.hidden = !body.hidden; more.textContent = body.hidden ? "Read more" : "Read less"; more.setAttribute("aria-expanded", body.hidden ? "false" : "true"); });
+      pop.insertBefore(more, body);
+    }
     var task = null;
     if (s.task) { task = document.createElement("p"); task.className = "task"; task.textContent = "Try it: " + s.task; pop.appendChild(task); }
     var btns = document.createElement("div"); btns.className = "btns";

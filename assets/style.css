@@ -230,3 +230,15 @@ dl.glossary dd { margin: 0.15rem 0 0; }
 }
 
 .js.all .steps-nav { display: none; }
+
+/* demo page controls */
+.controls { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 0.5rem; }
+.ctl { font: inherit; font-size: 1rem; background: #ffffff; color: var(--ink); border: 1px solid var(--ink); border-radius: 5px; padding: 0.55rem 1rem; cursor: pointer; min-height: 2.75rem; text-decoration: none; display: inline-flex; align-items: center; }
+.ctl.primary { background: var(--ink); color: #ffffff; }
+.ctl:hover { text-decoration: underline; }
+.sr { position: absolute; left: -9999px; }
+
+.entry h4.group, h4.group { font-size: 1.05rem; color: var(--muted); margin: 2rem 0 0.25rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.formulas td.mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85rem; }
+.formulas th .sub { display: block; font-weight: 400; font-size: 0.9rem; color: var(--muted); }
+.mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.95rem; }

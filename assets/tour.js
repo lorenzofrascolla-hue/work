@@ -2,7 +2,7 @@
 // waits for the reader to try things. No network, no storage.
 (function () {
   "use strict";
-  var shade, hl, pop, steps = [], i = -1, poll = null, onDone = null;
+  var shade, hl, pop, steps = [], i = -1, poll = null, onDone = null, mini = false, moved = null;
   function el(sel) { return document.querySelector(sel); }
   function build() {
     shade = document.createElement("div"); shade.className = "tour-shade"; shade.setAttribute("aria-hidden", "true");
@@ -22,7 +22,10 @@
       hl.style.width = (r.width + pad * 2) + "px"; hl.style.height = (r.height + pad * 2) + "px"; hl.style.display = "block";
     } else { hl.style.display = "none"; }
     var w = pop.offsetWidth, h = pop.offsetHeight, vw = window.innerWidth, vh = window.innerHeight;
+    if (mini) { pop.style.left = ""; pop.style.top = ""; return; }
     if (vw <= 640) { pop.style.left = ""; pop.style.top = ""; return; }
+    // The reader dragged the box somewhere: keep it there for every later step (kept inside the window).
+    if (moved) { pop.style.left = Math.max(8, Math.min(vw - w - 8, moved.left)) + "px"; pop.style.top = Math.max(8, Math.min(vh - h - 8, moved.top)) + "px"; return; }
     // No visible target on a wide screen: keep the popover where it was, or centre it near the top if it has nowhere yet.
     if (!r) { if (!pop.style.left) { pop.style.left = Math.round((vw - w) / 2) + "px"; pop.style.top = "80px"; } return; }
     var left, top;
@@ -61,7 +64,19 @@
     var target = s.target ? el(s.target) : null;
     if (target) { target.classList.add("tour-target"); var tr = target.getBoundingClientRect(); var wide = tr.width > window.innerWidth * 0.55 || tr.height > window.innerHeight * 0.45; target.scrollIntoView({ block: wide ? "start" : "center", behavior: "auto" }); }
     pop.innerHTML = "";
-    var stepP = document.createElement("p"); stepP.className = "step"; stepP.textContent = "Step " + (i + 1) + " of " + steps.length; pop.appendChild(stepP);
+    var bar = document.createElement("div"); bar.className = "tour-bar";
+    var stepP = document.createElement("p"); stepP.className = "step"; stepP.textContent = "Step " + (i + 1) + " of " + steps.length;
+    var grip = document.createElement("span"); grip.className = "grip"; grip.setAttribute("aria-hidden", "true"); grip.title = "Drag to move"; grip.textContent = "\u2725 move";
+    var mb = document.createElement("button"); mb.type = "button"; mb.className = "mini-btn"; mb.textContent = mini ? "Show" : "Minimize"; mb.setAttribute("aria-expanded", mini ? "false" : "true");
+    mb.addEventListener("click", function () { mini = !mini; document.documentElement.classList.toggle("tour-min", mini); render(); });
+    bar.appendChild(stepP); bar.appendChild(grip); bar.appendChild(mb); pop.appendChild(bar);
+    bar.addEventListener("pointerdown", function (e) {
+      if (mini || window.innerWidth <= 640 || e.target.closest("button")) return;
+      var r0 = pop.getBoundingClientRect(), dx = e.clientX - r0.left, dy = e.clientY - r0.top;
+      function mv(ev) { moved = { left: ev.clientX - dx, top: ev.clientY - dy }; place(null); }
+      function up() { window.removeEventListener("pointermove", mv); window.removeEventListener("pointerup", up); }
+      window.addEventListener("pointermove", mv); window.addEventListener("pointerup", up); e.preventDefault();
+    });
     var h = document.createElement("h2"); h.id = "tour-h"; h.textContent = s.title; pop.appendChild(h);
     s.body.forEach(function (t) { var p = document.createElement("p"); p.textContent = t; pop.appendChild(p); });
     var task = null;
@@ -92,7 +107,7 @@
     document.documentElement.classList.remove("tour-on");
     document.querySelectorAll(".tour-target").forEach(function (t) { t.classList.remove("tour-target"); });
     if (poll) { clearInterval(poll); poll = null; }
-    i = -1; if (onDone) onDone();
+    i = -1; mini = false; moved = null; document.documentElement.classList.remove("tour-min"); if (onDone) onDone();
   }
   function start(list, opts) {
     steps = list; onDone = opts && opts.onDone;

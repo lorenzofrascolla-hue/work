@@ -25,8 +25,9 @@
 </p>
 <div class="note">
 <p><strong>What this is.</strong> A demo copy of the live system, built from data it saved on 12 October 2026. Nothing here updates or connects to anything. Every panel exists on the real dashboard; panels that need live feeds are listed but not computed here. The account is a practice account: every balance, position and order is simulated. Simancas Capital is the name of my research publication, not a company or a fund.</p>
-<p><strong>Results so far.</strong> The current practice account is up 1.2% from 3 July to 12 October 2026, against 4.3% for the S&amp;P 500. An earlier $100,000 practice account ran from 2 June to 2 July and ended down 8.5% while the index fell 1.7%; the account was then reset. Neither account has beaten the index.</p>
-<p><strong>Scale.</strong> The live system’s daily scan covers up to 284 stocks. This demo carries the saved data for the 25 companies on my research list and the 46-company scan from the snapshot day; news and order panels are off because they need live feeds.</p>
+<p><strong>How this was made.</strong> I designed the system, chose its rules and the 13 gates, and run it every day; Claude models from Anthropic wrote most of the code under my direction, and a second AI pass reviewed it.</p>
+<p><strong>Results so far.</strong> The current practice account is up 1.2% from 3 July to 12 October 2026, against 4.3% for the S&amp;P 500. An earlier $100,000 practice account ran from 2 June to 2 July and ended down 8.4% while the index fell 1.7%; the account was then reset. Neither account has beaten the index.</p>
+<p><strong>Scale.</strong> The live system’s daily scan covers up to 284 stocks. This demo carries the saved data for the 25 companies on my research list and the 46-company scan saved with the snapshot (dated 13 October in replica.json); news and order panels are off because they need live feeds.</p>
 </div>
 <noscript><p class="note">The dashboard needs JavaScript to draw itself. Without it, the saved data files are listed under About the data below, and the home page links the rest of the site.</p></noscript>
 
@@ -47,7 +48,7 @@
 <li><a href="../data/replica.json">replica.json</a>: the account, positions, company research run, gate results, factor run, backtest and the automated run's log, as exported from the system. Its morning-scan and news-shock entries are dated 13 October 2026, the morning after the snapshot; the Daily scan and Market regime cards say so where it applies.</li>
 <li><a href="../data/prices.json">prices.json</a>: thirteen months of official daily closing prices (15 September 2025 to 12 October 2026) for the 25 companies and the S&amp;P 500 fund, from Nasdaq.com.</li>
 <li><a href="../data/positions.csv">positions.csv</a>: the 14 positions at the snapshot.</li>
-<li><a href="../data/equity-history.csv">equity-history.csv</a>: the account value for every trading day with a usable record (four days are missing; see below), next to the S&amp;P 500 close. It also holds an earlier $100,000 practice account that ran from 2 June to 2 July 2026 and ended down 8.5% (S&amp;P 500 down 1.7%) before the reset; that account is in this file and in summary.json and is not on the chart.</li>
+<li><a href="../data/equity-history.csv">equity-history.csv</a>: the account value for every trading day with a usable record (four days are missing; see below), next to the S&amp;P 500 close. It also holds an earlier $100,000 practice account that ran from 2 June to 2 July 2026 and ended down 8.4% (S&amp;P 500 down 1.7%) before the reset; that account is in this file and in summary.json and is not on the chart.</li>
 <li><a href="../data/paper-trades-dashboard.csv">paper-trades-dashboard.csv</a>: every simulated order sent through the dashboard (227 records).</li>
 <li><a href="../data/paper-trades-automated.csv">paper-trades-automated.csv</a>: the simulated orders planned by the automated morning run (92 records).</li>
 <li><a href="../data/blocked-orders.csv">blocked-orders.csv</a>: the 96 simulated buys cancelled by the exposure limit.</li>
@@ -75,7 +76,7 @@
 <dt>Account value (equity)</dt><dd>What the account would be worth if everything in it were sold at the latest prices.</dd>
 <dt>S&amp;P 500</dt><dd>An index that tracks 500 large US companies, the usual yardstick for the US stock market. SPY is a fund that tracks it.</dd>
 <dt>Benchmark</dt><dd>The yardstick a portfolio is compared with. Here it is the S&amp;P 500.</dd>
-<dt>Research list (SPG universe)</dt><dd>SPG is the Silicon-Power Gap, my research paper. The research list is the 25 companies it points at: grid equipment, power producers, data-center landlords and chip suppliers.</dd>
+<dt>Research list (SPG universe)</dt><dd>SPG is the Silicon-Power Gap, my research paper. The research list is 25 US-listed companies chosen around the paper’s thesis: grid equipment, power producers, data-center landlords and chip suppliers.</dd>
 <dt>Risk gate</dt><dd>A yes-or-no rule a company must pass before the system will flag it as a buy candidate. There are 13.</dd>
 <dt>Exposure limit</dt><dd>A cap on the total size of the portfolio compared with the account value. The last check before any simulated order is sent.</dd>
 <dt>Circuit breaker</dt><dd>A rule that stops the automated run from adding risk after the account falls too far behind the index, until the rules re-arm it. The saved files do not define what counts as risk here; the run's log shows it still bought the index fund on 4 September 2026 while the breaker was tripped (marked on the Performance chart).</dd>
@@ -111,6 +112,6 @@
 <p>Last updated: 16 October 2026. <a href="../">Home</a></p>
 </footer>
 <script src="../assets/tour.js?v=13" defer></script>
-<script src="../assets/terminal.js?v=18" defer></script>
+<script src="../assets/terminal.js?v=19" defer></script>
 </body>
 </html>
